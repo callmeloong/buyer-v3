@@ -2,32 +2,5670 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  * {
+    @apply border-border;
   }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+:root {
+  /* --bs-breadcrumb-divider: "\2023"; */
+  --bs-breadcrumb-divider: "/";
+
+  /* color */
+  --color-primary: #00AB56;
+  --heading-text-color: #00AB56;
+  --body-text-color: #000000;
+  --body-bg-color: #FFFFFF;
+  --button-text-color: #FFFFFF;
+  --button-background-color: var(--color-primary);
+  --button-background-color-hover: #289961;
+  --overlay-default: rgba(0, 0, 0, 0.4);
+  --line-height-default: 1.4;
+  --border-radius: 5px;
+  --gap: 1.25rem;
+  --header-background: #ffffff;
+
+  /* font */
+  --font-family-heading: 'Berkshire Swash', cursive;
+  --font-variant-heading: bold;
+  --font-text-decoration-heading: none;
+  --font-size-heading: 1.5rem;
+  --text-transform-heading: capitalize;
+  --font-family-body: 'Poppins', sans-serif;
+  --font-variant-body: normal;
+  --font-text-decoration-body: none;
+  --font-size-body: 1rem;
+  --font-family-button-link: 'Poppins', sans-serif;
+  --font-variant-button-link: 600;
+  --font-text-decoration-button-link: none;
+  --font-size-button-link: 1.125rem;
+  --text-transform-button-link: capitalize;
+  --bs-body-font-size: var(--font-size-body);
+
+  /* Buttons */
+  --color-background-button: var(--button-background-color);
+  --color-text-button: var(--button-text-color);
+
+  /* Announcement */
+  --color-announcement-bar-background: #000000;
+  --color-announcement-bar-text: #ffffff;
+
+  /* Header */
+  --color-main-menu-background: #ffffff;
+  --color-main-menu-text: #000000;
+  --color-main-menu-text-hover: var(--color-primary);
+  --header-height: 6.25rem;
+
+  /* Rich text */
+  --color-rich-text-heading: var(--heading-text-color);
+  --color-rich-text-text: var(--body-text-color);
+  --color-rich-text-background-button: var(--button-background-color);
+  --color-rich-text-text-button: var(--button-text-color);
+
+  /* Collection */
+  --color-collection-list-heading: var(--heading-text-color);
+  --color-collection-title: var(--body-text-color);
+
+  /* Products */
+  --color-product-detail-name: var(--body-text-color);
+  --color-product-detail-sale-price: var(--body-text-color);
+  --color-product-detail-price: var(--overlay-default);
+
+  /* Banner */
+  --color-banner-overlay: var(--overlay-default);
+  --color-banner-heading: var(--color-primary);
+  --color-banner-text: var(--body-text-color);
+  --color-banner-background-button: var(--button-background-color);
+  --color-banner-text-button: var(--button-text-color);
+
+  /* Image with Text */
+  --color-img-with-text-overlay: var(--overlay-default);
+  --color-img-with-text-heading: var(--heading-text-color);
+  --color-img-with-text-text: var(--body-text-color);
+  --color-img-with-text-background-button: var(--button-background-color);
+  --color-img-with-text-text-button: var(--button-text-color);
+
+  /* Featured promotion */
+  --color-promotion-background: transparent;
+  --color-promotion-text: var(--body-text-color);
+
+  /* Footer */
+  --color-footer-background: #F2F2F2;
+  --color-footer-heading: #000000;
+  --color-footer-text: #000000;
+  --color-footer-links: #000000;
+  --color-footer-border: #000000;
+
+  --h1-font-size: 3rem;
+  --h2-font-size: 2.5rem;
+  --h3-font-size: 2rem;
+  --h4-font-size: 1.5rem;
+  --h5-font-size: 1.25rem;
+  --h6-font-size: 1rem;
+}
+
+::-webkit-scrollbar {
+  background-color: #F5F5F5;
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+}
+
+h6 {
+  font-size: var(--h6-font-size);
+}
+
+html,
+body {
+  font: var(--font-variant-body) var(--font-size-body) var(--font-family-body);
+  color: var(--body-text-color);
+  text-decoration: var(--font-text-decoration-body);
+  background-color: var(--body-bg-color);
+  min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+main {
+  margin-bottom: auto;
+}
+
+/* @media screen and (max-width:1367.98px) {
+:root {
+  --font-size-body:                   14px !important;
+}
+} */
+
+/* Flag css */
+.layered-currency-switcher {
+  width: auto;
+  float: right;
+  padding: 0 0 0 50px;
+  margin: 0px;
+}
+
+.layered-currency-switcher li {
+  display: block;
+  float: left;
+  font-size: 15px;
+  margin: 0px;
+}
+
+.layered-currency-switcher li button.currency-switcher-btn {
+  width: auto;
+  height: auto;
+  margin-bottom: 0px;
+  background: #fff;
+  font-family: Arial !important;
+  line-height: 18px;
+  border: 1px solid #dadada;
+  border-radius: 25px;
+  color: #9a9a9a;
+  float: left;
+  font-weight: 700;
+  margin-left: -46px;
+  min-width: 90px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 11px 10px 49px
+}
+
+.price-on-hover,
+.price-on-hover-wrapper {
+  font-size: 15px !important;
+  line-height: 25px !important
+}
+
+.layered-currency-switcher li button.currency-switcher-btn:focus {
+  outline: 0;
+  -webkit-outline: none;
+  -moz-outline: none;
+  -o-outline: none
+}
+
+.layered-currency-switcher li button.currency-switcher-btn:hover {
+  background: #ddf6cf;
+  border-color: #a9d092;
+  color: #89b171
+}
+
+.layered-currency-switcher li button.currency-switcher-btn span {
+  display: none
+}
+
+.layered-currency-switcher li button.currency-switcher-btn:first-child {
+  border-radius: 25px
+}
+
+.layered-currency-switcher li button.currency-switcher-btn.selected {
+  background: #de4c39;
+  border-color: #de4c39;
+  color: #fff;
+  z-index: 99;
+  padding-left: 23px !important;
+  padding-right: 23px !important
+}
+
+.layered-currency-switcher li button.currency-switcher-btn.selected span {
+  display: inline-block
+}
+
+.doubly,
+.money {
+  position: relative;
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  text-decoration: inherit !important;
+}
+
+.price-on-hover-wrapper {
+  position: absolute;
+  left: -50%;
+  text-align: center;
+  width: 200%;
+  top: 110%;
+  z-index: 100000000
+}
+
+.price-on-hover {
+  background: #333;
+  border-color: #FFF !important;
+  padding: 2px 5px 3px;
+  font-weight: 400;
+  border-radius: 5px;
+  font-family: Helvetica Neue, Arial;
+  color: #fff;
+  border: 0
+}
+
+.price-on-hover:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -2px;
+  width: 0;
+  height: 0;
+  border-bottom: solid 4px #333;
+  border-left: solid 4px transparent;
+  border-right: solid 4px transparent
+}
+
+.doubly-message {
+  margin: 5px 0
+}
+
+.doubly-wrapper {
+  float: right
+}
+
+.doubly-float {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  right: auto;
+  z-index: 100000;
+}
+
+select.currency-switcher {
+  margin: 0px;
+  position: relative;
+  top: auto;
+}
+
+select.currency-switcher {
+  display: none
+}
+
+.doubly-nice-select {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-family: "Helvetica Neue", Arial;
+  font-size: 14px;
+  font-weight: 400;
+  height: 42px;
+  line-height: 40px;
+  outline: 0;
+  padding-left: 12px;
+  padding-right: 30px;
+  position: relative;
+  text-align: left !important;
+  transition: none;
+  /*transition:all .2s ease-in-out;*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  width: auto
+}
+
+.doubly-nice-select:hover {
+  border-color: #dbdbdb
+}
+
+.doubly-nice-select.open,
+.doubly-nice-select:active,
+.doubly-nice-select:focus {
+  border-color: #88bfff
+}
+
+.doubly-nice-select:after {
+  border-bottom: 2px solid #999;
+  border-right: 2px solid #999;
+  content: "";
+  display: block;
+  height: 5px;
+  box-sizing: content-box;
+  pointer-events: none;
+  position: absolute;
+  right: 14px;
+  top: 16px;
+  -webkit-transform-origin: 66% 66%;
+  transform-origin: 66% 66%;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  transition: transform .15s ease-in-out;
+  width: 5px
+}
+
+.doubly-nice-select.open:after {
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg)
+}
+
+.doubly-nice-select.open .list {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: scale(1) translateY(0);
+  transform: scale(1) translateY(0);
+  z-index: 1000000 !important;
+}
+
+.doubly-nice-select.disabled {
+  border-color: #ededed;
+  color: #999;
+  pointer-events: none
+}
+
+.doubly-nice-select.disabled:after {
+  border-color: #ccc
+}
+
+.doubly-nice-select.wide {
+  width: 100%
+}
+
+.doubly-nice-select.wide .list {
+  left: 0 !important;
+  right: 0 !important
+}
+
+.doubly-nice-select.right {
+  float: right
+}
+
+.doubly-nice-select.right .list {
+  left: auto;
+  right: 0
+}
+
+.doubly-nice-select.small {
+  font-size: 12px;
+  height: 36px;
+  line-height: 34px
+}
+
+.doubly-nice-select.small:after {
+  height: 4px;
+  width: 4px
+}
+
+.flags-Afghanistan,
+.flags-Albania,
+.flags-Algeria,
+.flags-Andorra,
+.flags-Angola,
+.flags-Antigua-and-Barbuda,
+.flags-Argentina,
+.flags-Armenia,
+.flags-Aruba,
+.flags-Australia,
+.flags-Austria,
+.flags-Azerbaijan,
+.flags-Bahamas,
+.flags-Bahrain,
+.flags-Bangladesh,
+.flags-Barbados,
+.flags-Belarus,
+.flags-Belgium,
+.flags-Belize,
+.flags-Benin,
+.flags-Bermuda,
+.flags-Bhutan,
+.flags-Bitcoin,
+.flags-Bolivia,
+.flags-Bosnia-and-Herzegovina,
+.flags-Botswana,
+.flags-Brazil,
+.flags-Brunei,
+.flags-Bulgaria,
+.flags-Burkina-Faso,
+.flags-Burundi,
+.flags-Cambodia,
+.flags-Cameroon,
+.flags-Canada,
+.flags-Cape-Verde,
+.flags-Cayman-Islands,
+.flags-Central-African-Republic,
+.flags-Chad,
+.flags-Chile,
+.flags-China,
+.flags-Colombia,
+.flags-Comoros,
+.flags-Congo-Democratic,
+.flags-Congo-Republic,
+.flags-Costa-Rica,
+.flags-Cote-d_Ivoire,
+.flags-Croatia,
+.flags-Cuba,
+.flags-Curacao,
+.flags-Cyprus,
+.flags-Czech-Republic,
+.flags-Denmark,
+.flags-Djibouti,
+.flags-Dominica,
+.flags-Dominican-Republic,
+.flags-East-Timor,
+.flags-Ecuador,
+.flags-Egypt,
+.flags-El-Salvador,
+.flags-Equatorial-Guinea,
+.flags-Eritrea,
+.flags-Estonia,
+.flags-Ethiopia,
+.flags-European-Union,
+.flags-Falkland-Islands,
+.flags-Fiji,
+.flags-Finland,
+.flags-France,
+.flags-Gabon,
+.flags-Gambia,
+.flags-Georgia,
+.flags-Germany,
+.flags-Ghana,
+.flags-Gibraltar,
+.flags-Grecee,
+.flags-Grenada,
+.flags-Guatemala,
+.flags-Guernsey,
+.flags-Guinea,
+.flags-Guinea-Bissau,
+.flags-Guyana,
+.flags-Haiti,
+.flags-Honduras,
+.flags-Hong-Kong,
+.flags-Hungary,
+.flags-IMF,
+.flags-Iceland,
+.flags-India,
+.flags-Indonesia,
+.flags-Iran,
+.flags-Iraq,
+.flags-Ireland,
+.flags-Isle-of-Man,
+.flags-Israel,
+.flags-Italy,
+.flags-Jamaica,
+.flags-Japan,
+.flags-Jersey,
+.flags-Jordan,
+.flags-Kazakhstan,
+.flags-Kenya,
+.flags-Korea-North,
+.flags-Korea-South,
+.flags-Kosovo,
+.flags-Kuwait,
+.flags-Kyrgyzstan,
+.flags-Laos,
+.flags-Latvia,
+.flags-Lebanon,
+.flags-Lesotho,
+.flags-Liberia,
+.flags-Libya,
+.flags-Liechtenstein,
+.flags-Lithuania,
+.flags-Luxembourg,
+.flags-Macao,
+.flags-Macedonia,
+.flags-Madagascar,
+.flags-Malawi,
+.flags-Malaysia,
+.flags-Maldives,
+.flags-Mali,
+.flags-Malta,
+.flags-Marshall-Islands,
+.flags-Mauritania,
+.flags-Mauritius,
+.flags-Mexico,
+.flags-Micronesia-_Federated_,
+.flags-Moldova,
+.flags-Monaco,
+.flags-Mongolia,
+.flags-Montenegro,
+.flags-Morocco,
+.flags-Mozambique,
+.flags-Myanmar,
+.flags-Namibia,
+.flags-Nauru,
+.flags-Nepal,
+.flags-Netherlands,
+.flags-New-Zealand,
+.flags-Nicaragua,
+.flags-Niger,
+.flags-Nigeria,
+.flags-Norway,
+.flags-Oman,
+.flags-Pakistan,
+.flags-Palau,
+.flags-Panama,
+.flags-Papua-New-Guinea,
+.flags-Paraguay,
+.flags-Peru,
+.flags-Philippines,
+.flags-Poland,
+.flags-Portugal,
+.flags-Qatar,
+.flags-Romania,
+.flags-Russia,
+.flags-Rwanda,
+.flags-Saint-Helena,
+.flags-Saint-Kitts-and-Nevis,
+.flags-Saint-Lucia,
+.flags-Saint-Vincent-and-the-Grenadines,
+.flags-Samoa,
+.flags-San-Marino,
+.flags-Sao-Tome-and-Principe,
+.flags-Saudi-Arabia,
+.flags-Seborga,
+.flags-Senegal,
+.flags-Serbia,
+.flags-Seychelles,
+.flags-Sierra-Leone,
+.flags-Singapore,
+.flags-Slovakia,
+.flags-Slovenia,
+.flags-Solomon-Islands,
+.flags-Somalia,
+.flags-South-Africa,
+.flags-South-Sudan,
+.flags-Spain,
+.flags-Sri-Lanka,
+.flags-Sudan,
+.flags-Suriname,
+.flags-Swaziland,
+.flags-Sweden,
+.flags-Switzerland,
+.flags-Syria,
+.flags-Taiwan,
+.flags-Tajikistan,
+.flags-Tanzania,
+.flags-Thailand,
+.flags-Togo,
+.flags-Tonga,
+.flags-Trinidad-and-Tobago,
+.flags-Tunisia,
+.flags-Turkey,
+.flags-Turkmenistan,
+.flags-Tuvalu,
+.flags-Uganda,
+.flags-Ukraine,
+.flags-United-Arab-Emirates,
+.flags-United-Kingdom,
+.flags-United-States,
+.flags-Uruguay,
+.flags-Uzbekistan,
+.flags-Vanuatu,
+.flags-Vatican-City,
+.flags-Venezuela,
+.flags-Vietnam,
+.flags-Wallis-and-Futuna,
+.flags-XAG,
+.flags-XAU,
+.flags-XPT,
+.flags-Yemen,
+.flags-Zambia,
+.flags-Zimbabwe {
+  width: 30px;
+  height: 20px
+}
+
+.doubly-nice-select.small .option {
+  line-height: 34px;
+  min-height: 34px
+}
+
+.doubly-nice-select .list {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px rgba(68, 68, 68, .11);
+  box-sizing: border-box;
+  margin: 4px 0 0 !important;
+  opacity: 0;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  max-height: 260px;
+  left: 0;
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transform: scale(.75) translateY(-21px);
+  transform: scale(.75) translateY(-21px);
+  transition: all .2s cubic-bezier(.5, 0, 0, 1.25), opacity .15s ease-out;
+  z-index: 100000
+}
+
+.doubly-nice-select .current img,
+.doubly-nice-select .option img {
+  vertical-align: top;
+  padding-top: 10px
+}
+
+.doubly-nice-select .list:hover .option:not(:hover) {
+  background-color: transparent !important
+}
+
+.doubly-nice-select .option {
+  font-size: 13px !important;
+  float: none !important;
+  text-align: left !important;
+  margin: 0px !important;
+  font-family: Helvetica Neue, Arial !important;
+  letter-spacing: normal;
+  text-transform: none;
+  display: block !important;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 40px !important;
+  list-style: none;
+  min-height: 40px;
+  min-width: 55px;
+  margin-bottom: 0;
+  outline: 0;
+  padding-left: 18px !important;
+  padding-right: 52px !important;
+  text-align: left;
+  transition: all .2s
+}
+
+.doubly-nice-select .option.focus,
+.doubly-nice-select .option.selected.focus,
+.doubly-nice-select .option:hover {
+  background-color: #f6f6f6
+}
+
+.doubly-nice-select .option.selected {
+  font-weight: 700
+}
+
+.doubly-nice-select .current img {
+  line-height: 45px
+}
+
+.doubly-nice-select.slim {
+  padding: 0 18px 0 0;
+  height: 20px;
+  line-height: 20px;
+  border: 0;
+  background: 0 0 !important
+}
+
+.doubly-nice-select.slim .current .flags {
+  margin-top: 0 !important
+}
+
+.doubly-nice-select.slim:after {
+  right: 4px;
+  top: 6px
+}
+
+.flags {
+  background-image: url('../../public/currency-flags.jpg');
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0 4px 0 0 !important;
+}
+
+.flags-Zimbabwe {
+  background-position: -5px -5px
+}
+
+.flags-Zambia {
+  background-position: -45px -5px
+}
+
+.flags-Yemen {
+  background-position: -85px -5px
+}
+
+.flags-Vietnam {
+  background-position: -125px -5px
+}
+
+.flags-Venezuela {
+  background-position: -165px -5px
+}
+
+.flags-Vatican-City {
+  background-position: -205px -5px
+}
+
+.flags-Vanuatu {
+  background-position: -245px -5px
+}
+
+.flags-Uzbekistan {
+  background-position: -285px -5px
+}
+
+.flags-Uruguay {
+  background-position: -325px -5px
+}
+
+.flags-United-States {
+  background-position: -365px -5px
+}
+
+.flags-United-Kingdom {
+  background-position: -405px -5px
+}
+
+.flags-United-Arab-Emirates {
+  background-position: -445px -5px
+}
+
+.flags-Ukraine {
+  background-position: -5px -35px
+}
+
+.flags-Uganda {
+  background-position: -45px -35px
+}
+
+.flags-Tuvalu {
+  background-position: -85px -35px
+}
+
+.flags-Turkmenistan {
+  background-position: -125px -35px
+}
+
+.flags-Turkey {
+  background-position: -165px -35px
+}
+
+.flags-Tunisia {
+  background-position: -205px -35px
+}
+
+.flags-Trinidad-and-Tobago {
+  background-position: -245px -35px
+}
+
+.flags-Tonga {
+  background-position: -285px -35px
+}
+
+.flags-Togo {
+  background-position: -325px -35px
+}
+
+.flags-Thailand {
+  background-position: -365px -35px
+}
+
+.flags-Tanzania {
+  background-position: -405px -35px
+}
+
+.flags-Tajikistan {
+  background-position: -445px -35px
+}
+
+.flags-Taiwan {
+  background-position: -5px -65px
+}
+
+.flags-Syria {
+  background-position: -45px -65px
+}
+
+.flags-Switzerland {
+  background-position: -85px -65px
+}
+
+.flags-Sweden {
+  background-position: -125px -65px
+}
+
+.flags-Swaziland {
+  background-position: -165px -65px
+}
+
+.flags-Suriname {
+  background-position: -205px -65px
+}
+
+.flags-Sudan {
+  background-position: -245px -65px
+}
+
+.flags-Sri-Lanka {
+  background-position: -285px -65px
+}
+
+.flags-Spain {
+  background-position: -325px -65px
+}
+
+.flags-South-Sudan {
+  background-position: -365px -65px
+}
+
+.flags-South-Africa {
+  background-position: -405px -65px
+}
+
+.flags-Somalia {
+  background-position: -445px -65px
+}
+
+.flags-Solomon-Islands {
+  background-position: -5px -95px
+}
+
+.flags-Slovenia {
+  background-position: -45px -95px
+}
+
+.flags-Slovakia {
+  background-position: -85px -95px
+}
+
+.flags-Singapore {
+  background-position: -125px -95px
+}
+
+.flags-Sierra-Leone {
+  background-position: -165px -95px
+}
+
+.flags-Seychelles {
+  background-position: -205px -95px
+}
+
+.flags-Serbia {
+  background-position: -245px -95px
+}
+
+.flags-Senegal {
+  background-position: -285px -95px
+}
+
+.flags-Saudi-Arabia {
+  background-position: -325px -95px
+}
+
+.flags-Sao-Tome-and-Principe {
+  background-position: -365px -95px
+}
+
+.flags-San-Marino {
+  background-position: -405px -95px
+}
+
+.flags-Samoa {
+  background-position: -445px -95px
+}
+
+.flags-Saint-Vincent-and-the-Grenadines {
+  background-position: -5px -125px
+}
+
+.flags-Saint-Lucia {
+  background-position: -45px -125px
+}
+
+.flags-Saint-Kitts-and-Nevis {
+  background-position: -85px -125px
+}
+
+.flags-Rwanda {
+  background-position: -125px -125px
+}
+
+.flags-Russia {
+  background-position: -165px -125px
+}
+
+.flags-Romania {
+  background-position: -205px -125px
+}
+
+.flags-Qatar {
+  background-position: -245px -125px
+}
+
+.flags-Portugal {
+  background-position: -285px -125px
+}
+
+.flags-Poland {
+  background-position: -325px -125px
+}
+
+.flags-Philippines {
+  background-position: -365px -125px
+}
+
+.flags-Peru {
+  background-position: -405px -125px
+}
+
+.flags-Paraguay {
+  background-position: -445px -125px
+}
+
+.flags-Papua-New-Guinea {
+  background-position: -5px -155px
+}
+
+.flags-Panama {
+  background-position: -45px -155px
+}
+
+.flags-Palau {
+  background-position: -85px -155px
+}
+
+.flags-Pakistan {
+  background-position: -125px -155px
+}
+
+.flags-Oman {
+  background-position: -165px -155px
+}
+
+.flags-Norway {
+  background-position: -205px -155px
+}
+
+.flags-Nigeria {
+  background-position: -245px -155px
+}
+
+.flags-Niger {
+  background-position: -285px -155px
+}
+
+.flags-Nicaragua {
+  background-position: -325px -155px
+}
+
+.flags-New-Zealand {
+  background-position: -365px -155px
+}
+
+.flags-Netherlands {
+  background-position: -405px -155px
+}
+
+.flags-Nepal {
+  background-position: -445px -155px
+}
+
+.flags-Nauru {
+  background-position: -5px -185px
+}
+
+.flags-Namibia {
+  background-position: -45px -185px
+}
+
+.flags-Myanmar {
+  background-position: -85px -185px
+}
+
+.flags-Mozambique {
+  background-position: -125px -185px
+}
+
+.flags-Morocco {
+  background-position: -165px -185px
+}
+
+.flags-Montenegro {
+  background-position: -205px -185px
+}
+
+.flags-Mongolia {
+  background-position: -245px -185px
+}
+
+.flags-Monaco {
+  background-position: -285px -185px
+}
+
+.flags-Moldova {
+  background-position: -325px -185px
+}
+
+.flags-Micronesia-_Federated_ {
+  background-position: -365px -185px
+}
+
+.flags-Mexico {
+  background-position: -405px -185px
+}
+
+.flags-Mauritius {
+  background-position: -445px -185px
+}
+
+.flags-Mauritania {
+  background-position: -5px -215px
+}
+
+.flags-Marshall-Islands {
+  background-position: -45px -215px
+}
+
+.flags-Malta {
+  background-position: -85px -215px
+}
+
+.flags-Mali {
+  background-position: -125px -215px
+}
+
+.flags-Maldives {
+  background-position: -165px -215px
+}
+
+.flags-Malaysia {
+  background-position: -205px -215px
+}
+
+.flags-Malawi {
+  background-position: -245px -215px
+}
+
+.flags-Madagascar {
+  background-position: -285px -215px
+}
+
+.flags-Macedonia {
+  background-position: -325px -215px
+}
+
+.flags-Luxembourg {
+  background-position: -365px -215px
+}
+
+.flags-Lithuania {
+  background-position: -405px -215px
+}
+
+.flags-Liechtenstein {
+  background-position: -445px -215px
+}
+
+.flags-Libya {
+  background-position: -5px -245px
+}
+
+.flags-Liberia {
+  background-position: -45px -245px
+}
+
+.flags-Lesotho {
+  background-position: -85px -245px
+}
+
+.flags-Lebanon {
+  background-position: -125px -245px
+}
+
+.flags-Latvia {
+  background-position: -165px -245px
+}
+
+.flags-Laos {
+  background-position: -205px -245px
+}
+
+.flags-Kyrgyzstan {
+  background-position: -245px -245px
+}
+
+.flags-Kuwait {
+  background-position: -285px -245px
+}
+
+.flags-Kosovo {
+  background-position: -325px -245px
+}
+
+.flags-Korea-South {
+  background-position: -365px -245px
+}
+
+.flags-Korea-North {
+  background-position: -405px -245px
+}
+
+.flags-Kiribati {
+  width: 30px;
+  height: 20px;
+  background-position: -445px -245px
+}
+
+.flags-Kenya {
+  background-position: -5px -275px
+}
+
+.flags-Kazakhstan {
+  background-position: -45px -275px
+}
+
+.flags-Jordan {
+  background-position: -85px -275px
+}
+
+.flags-Japan {
+  background-position: -125px -275px
+}
+
+.flags-Jamaica {
+  background-position: -165px -275px
+}
+
+.flags-Italy {
+  background-position: -205px -275px
+}
+
+.flags-Israel {
+  background-position: -245px -275px
+}
+
+.flags-Ireland {
+  background-position: -285px -275px
+}
+
+.flags-Iraq {
+  background-position: -325px -275px
+}
+
+.flags-Iran {
+  background-position: -365px -275px
+}
+
+.flags-Indonesia {
+  background-position: -405px -275px
+}
+
+.flags-India {
+  background-position: -445px -275px
+}
+
+.flags-Iceland {
+  background-position: -5px -305px
+}
+
+.flags-Hungary {
+  background-position: -45px -305px
+}
+
+.flags-Honduras {
+  background-position: -85px -305px
+}
+
+.flags-Haiti {
+  background-position: -125px -305px
+}
+
+.flags-Guyana {
+  background-position: -165px -305px
+}
+
+.flags-Guinea {
+  background-position: -205px -305px
+}
+
+.flags-Guinea-Bissau {
+  background-position: -245px -305px
+}
+
+.flags-Guatemala {
+  background-position: -285px -305px
+}
+
+.flags-Grenada {
+  background-position: -325px -305px
+}
+
+.flags-Grecee {
+  background-position: -365px -305px
+}
+
+.flags-Ghana {
+  background-position: -405px -305px
+}
+
+.flags-Germany {
+  background-position: -445px -305px
+}
+
+.flags-Georgia {
+  background-position: -5px -335px
+}
+
+.flags-Gambia {
+  background-position: -45px -335px
+}
+
+.flags-Gabon {
+  background-position: -85px -335px
+}
+
+.flags-France {
+  background-position: -125px -335px
+}
+
+.flags-Finland {
+  background-position: -165px -335px
+}
+
+.flags-Fiji {
+  background-position: -205px -335px
+}
+
+.flags-Ethiopia {
+  background-position: -245px -335px
+}
+
+.flags-Estonia {
+  background-position: -285px -335px
+}
+
+.flags-Eritrea {
+  background-position: -325px -335px
+}
+
+.flags-Equatorial-Guinea {
+  background-position: -365px -335px
+}
+
+.flags-El-Salvador {
+  background-position: -405px -335px
+}
+
+.flags-Egypt {
+  background-position: -445px -335px
+}
+
+.flags-Ecuador {
+  background-position: -5px -365px
+}
+
+.flags-East-Timor {
+  background-position: -45px -365px
+}
+
+.flags-Dominican-Republic {
+  background-position: -85px -365px
+}
+
+.flags-Dominica {
+  background-position: -125px -365px
+}
+
+.flags-Djibouti {
+  background-position: -165px -365px
+}
+
+.flags-Denmark {
+  background-position: -205px -365px
+}
+
+.flags-Czech-Republic {
+  background-position: -245px -365px
+}
+
+.flags-Cyprus {
+  background-position: -285px -365px
+}
+
+.flags-Cuba {
+  background-position: -325px -365px
+}
+
+.flags-Croatia {
+  background-position: -365px -365px
+}
+
+.flags-Cote-d_Ivoire {
+  background-position: -405px -365px
+}
+
+.flags-Costa-Rica {
+  background-position: -445px -365px
+}
+
+.flags-Congo-Republic {
+  background-position: -5px -395px
+}
+
+.flags-Congo-Democratic {
+  background-position: -45px -395px
+}
+
+.flags-Comoros {
+  background-position: -85px -395px
+}
+
+.flags-Colombia {
+  background-position: -125px -395px
+}
+
+.flags-China {
+  background-position: -165px -395px
+}
+
+.flags-Chile {
+  background-position: -205px -395px
+}
+
+.flags-Chad {
+  background-position: -245px -395px
+}
+
+.flags-Central-African-Republic {
+  background-position: -285px -395px
+}
+
+.flags-Cape-Verde {
+  background-position: -325px -395px
+}
+
+.flags-Canada {
+  background-position: -365px -395px
+}
+
+.flags-Cameroon {
+  background-position: -405px -395px
+}
+
+.flags-Cambodia {
+  background-position: -445px -395px
+}
+
+.flags-Burundi {
+  background-position: -5px -425px
+}
+
+.flags-Burkina-Faso {
+  background-position: -45px -425px
+}
+
+.flags-Bulgaria {
+  background-position: -85px -425px
+}
+
+.flags-Brunei {
+  background-position: -125px -425px
+}
+
+.flags-Brazil {
+  background-position: -165px -425px
+}
+
+.flags-Botswana {
+  background-position: -205px -425px
+}
+
+.flags-Bosnia-and-Herzegovina {
+  background-position: -245px -425px
+}
+
+.flags-Bolivia {
+  background-position: -285px -425px
+}
+
+.flags-Bhutan {
+  background-position: -325px -425px
+}
+
+.flags-Benin {
+  background-position: -365px -425px
+}
+
+.flags-Belize {
+  background-position: -405px -425px
+}
+
+.flags-Belgium {
+  background-position: -445px -425px
+}
+
+.flags-Belarus {
+  background-position: -5px -455px
+}
+
+.flags-Barbados {
+  background-position: -45px -455px
+}
+
+.flags-Bangladesh {
+  background-position: -85px -455px
+}
+
+.flags-Bahrain {
+  background-position: -125px -455px
+}
+
+.flags-Bahamas {
+  background-position: -165px -455px
+}
+
+.flags-Azerbaijan {
+  background-position: -205px -455px
+}
+
+.flags-Austria {
+  background-position: -245px -455px
+}
+
+.flags-Australia {
+  background-position: -285px -455px
+}
+
+.flags-Armenia {
+  background-position: -325px -455px
+}
+
+.flags-Argentina {
+  background-position: -365px -455px
+}
+
+.flags-Antigua-and-Barbuda {
+  background-position: -405px -455px
+}
+
+.flags-Andorra {
+  background-position: -445px -455px
+}
+
+.flags-Algeria {
+  background-position: -5px -485px
+}
+
+.flags-Albania {
+  background-position: -45px -485px
+}
+
+.flags-Afghanistan {
+  background-position: -85px -485px
+}
+
+.flags-Bermuda {
+  background-position: -125px -485px
+}
+
+.flags-European-Union {
+  background-position: -165px -485px
+}
+
+.flags-XPT {
+  background-position: -205px -485px
+}
+
+.flags-XAU {
+  background-position: -245px -485px
+}
+
+.flags-XAG {
+  background-position: -285px -485px
+}
+
+.flags-Wallis-and-Futuna {
+  background-position: -325px -485px
+}
+
+.flags-Seborga {
+  background-position: -365px -485px
+}
+
+.flags-Aruba {
+  background-position: -405px -485px
+}
+
+.flags-Angola {
+  background-position: -445px -485px
+}
+
+.flags-Saint-Helena {
+  background-position: -485px -5px
+}
+
+.flags-Macao {
+  background-position: -485px -35px
+}
+
+.flags-Jersey {
+  background-position: -485px -65px
+}
+
+.flags-Isle-of-Man {
+  background-position: -485px -95px
+}
+
+.flags-IMF {
+  background-position: -485px -125px
+}
+
+.flags-Hong-Kong {
+  background-position: -485px -155px
+}
+
+.flags-Guernsey {
+  background-position: -485px -185px
+}
+
+.flags-Gibraltar {
+  background-position: -485px -215px
+}
+
+.flags-Falkland-Islands {
+  background-position: -485px -245px
+}
+
+.flags-Curacao {
+  background-position: -485px -275px
+}
+
+.flags-Cayman-Islands {
+  background-position: -485px -305px
+}
+
+.flags-Bitcoin {
+  background-position: -485px -335px
+}
+
+.flags-small {
+  background-repeat: no-repeat;
+  display: block;
+  margin: 5px 3px 0 0 !important;
+  border: 1px solid #fff;
+  box-sizing: content-box;
+  float: left
+}
+
+.doubly-nice-select.open .list .flags-small {
+  margin-top: 15px !important
+}
+
+.flags-small.flags-Zimbabwe {
+  width: 15px;
+  height: 10px;
+  background-position: 0 0
+}
+
+.flags-small.flags-Zambia {
+  width: 15px;
+  height: 10px;
+  background-position: -15px 0
+}
+
+.flags-small.flags-Yemen {
+  width: 15px;
+  height: 10px;
+  background-position: -30px 0
+}
+
+.flags-small.flags-Vietnam {
+  width: 15px;
+  height: 10px;
+  background-position: -45px 0
+}
+
+.flags-small.flags-Venezuela {
+  width: 15px;
+  height: 10px;
+  background-position: -60px 0
+}
+
+.flags-small.flags-Vatican-City {
+  width: 15px;
+  height: 10px;
+  background-position: -75px 0
+}
+
+.flags-small.flags-Vanuatu {
+  width: 15px;
+  height: 10px;
+  background-position: -90px 0
+}
+
+.flags-small.flags-Uzbekistan {
+  width: 15px;
+  height: 10px;
+  background-position: -105px 0
+}
+
+.flags-small.flags-Uruguay {
+  width: 15px;
+  height: 10px;
+  background-position: -120px 0
+}
+
+.flags-small.flags-United-Kingdom {
+  width: 15px;
+  height: 10px;
+  background-position: -150px 0
+}
+
+.flags-small.flags-United-Arab-Emirates {
+  width: 15px;
+  height: 10px;
+  background-position: -165px 0
+}
+
+.flags-small.flags-Ukraine {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -10px
+}
+
+.flags-small.flags-Uganda {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -10px
+}
+
+.flags-small.flags-Tuvalu {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -10px
+}
+
+.flags-small.flags-Turkmenistan {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -10px
+}
+
+.flags-small.flags-Turkey {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -10px
+}
+
+.flags-small.flags-Tunisia {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -10px
+}
+
+.flags-small.flags-Trinidad-and-Tobago {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -10px
+}
+
+.flags-small.flags-Tonga {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -10px
+}
+
+.flags-small.flags-Togo {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -10px
+}
+
+.flags-small.flags-Thailand {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -10px
+}
+
+.flags-small.flags-Tanzania {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -10px
+}
+
+.flags-small.flags-Tajikistan {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -10px
+}
+
+.flags-small.flags-Taiwan {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -20px
+}
+
+.flags-small.flags-Syria {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -20px
+}
+
+.flags-small.flags-Switzerland {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -20px
+}
+
+.flags-small.flags-Sweden {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -20px
+}
+
+.flags-small.flags-Swaziland {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -20px
+}
+
+.flags-small.flags-Suriname {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -20px
+}
+
+.flags-small.flags-Sudan {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -20px
+}
+
+.flags-small.flags-Sri-Lanka {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -20px
+}
+
+.flags-small.flags-Spain {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -20px
+}
+
+.flags-small.flags-South-Sudan {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -20px
+}
+
+.flags-small.flags-South-Africa {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -20px
+}
+
+.flags-small.flags-Somalia {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -20px
+}
+
+.flags-small.flags-Solomon-Islands {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -30px
+}
+
+.flags-small.flags-Slovenia {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -30px
+}
+
+.flags-small.flags-Slovakia {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -30px
+}
+
+.flags-small.flags-Singapore {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -30px
+}
+
+.flags-small.flags-Sierra-Leone {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -30px
+}
+
+.flags-small.flags-Seychelles {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -30px
+}
+
+.flags-small.flags-Serbia {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -30px
+}
+
+.flags-small.flags-Senegal {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -30px
+}
+
+.flags-small.flags-Saudi-Arabia {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -30px
+}
+
+.flags-small.flags-Sao-Tome-and-Principe {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -30px
+}
+
+.flags-small.flags-San-Marino {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -30px
+}
+
+.flags-small.flags-Samoa {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -30px
+}
+
+.flags-small.flags-Saint-Vincent-and-the-Grenadines {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -40px
+}
+
+.flags-small.flags-Saint-Lucia {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -40px
+}
+
+.flags-small.flags-Saint-Kitts-and-Nevis {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -40px
+}
+
+.flags-small.flags-Rwanda {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -40px
+}
+
+.flags-small.flags-Russia {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -40px
+}
+
+.flags-small.flags-Romania {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -40px
+}
+
+.flags-small.flags-Qatar {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -40px
+}
+
+.flags-small.flags-Portugal {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -40px
+}
+
+.flags-small.flags-Poland {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -40px
+}
+
+.flags-small.flags-Philippines {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -40px
+}
+
+.flags-small.flags-Peru {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -40px
+}
+
+.flags-small.flags-Paraguay {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -40px
+}
+
+.flags-small.flags-Papua-New-Guinea {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -50px
+}
+
+.flags-small.flags-Panama {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -50px
+}
+
+.flags-small.flags-Palau {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -50px
+}
+
+.flags-small.flags-Pakistan {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -50px
+}
+
+.flags-small.flags-Oman {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -50px
+}
+
+.flags-small.flags-Norway {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -50px
+}
+
+.flags-small.flags-Nigeria {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -50px
+}
+
+.flags-small.flags-Niger {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -50px
+}
+
+.flags-small.flags-Nicaragua {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -50px
+}
+
+.flags-small.flags-New-Zealand {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -50px
+}
+
+.flags-small.flags-Netherlands {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -50px
+}
+
+.flags-small.flags-Nepal {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -50px
+}
+
+.flags-small.flags-Nauru {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -60px
+}
+
+.flags-small.flags-Namibia {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -60px
+}
+
+.flags-small.flags-Myanmar {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -60px
+}
+
+.flags-small.flags-Mozambique {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -60px
+}
+
+.flags-small.flags-Morocco {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -60px
+}
+
+.flags-small.flags-Montenegro {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -60px
+}
+
+.flags-small.flags-Mongolia {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -60px
+}
+
+.flags-small.flags-Monaco {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -60px
+}
+
+.flags-small.flags-Moldova {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -60px
+}
+
+.flags-small.flags-Micronesia-_Federated_ {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -60px
+}
+
+.flags-small.flags-Mexico {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -60px
+}
+
+.flags-small.flags-Mauritius {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -60px
+}
+
+.flags-small.flags-Mauritania {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -70px
+}
+
+.flags-small.flags-Marshall-Islands {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -70px
+}
+
+.flags-small.flags-Malta {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -70px
+}
+
+.flags-small.flags-Mali {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -70px
+}
+
+.flags-small.flags-Maldives {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -70px
+}
+
+.flags-small.flags-Malaysia {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -70px
+}
+
+.flags-small.flags-Malawi {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -70px
+}
+
+.flags-small.flags-Madagascar {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -70px
+}
+
+.flags-small.flags-Macedonia {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -70px
+}
+
+.flags-small.flags-Luxembourg {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -70px
+}
+
+.flags-small.flags-Lithuania {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -70px
+}
+
+.flags-small.flags-Liechtenstein {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -70px
+}
+
+.flags-small.flags-Libya {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -80px
+}
+
+.flags-small.flags-Liberia {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -80px
+}
+
+.flags-small.flags-Lesotho {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -80px
+}
+
+.flags-small.flags-Lebanon {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -80px
+}
+
+.flags-small.flags-Latvia {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -80px
+}
+
+.flags-small.flags-Laos {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -80px
+}
+
+.flags-small.flags-Kyrgyzstan {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -80px
+}
+
+.flags-small.flags-Kuwait {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -80px
+}
+
+.flags-small.flags-Kosovo {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -80px
+}
+
+.flags-small.flags-Korea-South {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -80px
+}
+
+.flags-small.flags-Korea-North {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -80px
+}
+
+.flags-small.flags-Kiribati {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -80px
+}
+
+.flags-small.flags-Kenya {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -90px
+}
+
+.flags-small.flags-Kazakhstan {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -90px
+}
+
+.flags-small.flags-Jordan {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -90px
+}
+
+.flags-small.flags-Japan {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -90px
+}
+
+.flags-small.flags-Jamaica {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -90px
+}
+
+.flags-small.flags-Italy {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -90px
+}
+
+.flags-small.flags-Israel {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -90px
+}
+
+.flags-small.flags-Ireland {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -90px
+}
+
+.flags-small.flags-Iraq {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -90px
+}
+
+.flags-small.flags-Iran {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -90px
+}
+
+.flags-small.flags-Indonesia {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -90px
+}
+
+.flags-small.flags-India {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -90px
+}
+
+.flags-small.flags-Iceland {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -100px
+}
+
+.flags-small.flags-Hungary {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -100px
+}
+
+.flags-small.flags-Honduras {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -100px
+}
+
+.flags-small.flags-Haiti {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -100px
+}
+
+.flags-small.flags-Guyana {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -100px
+}
+
+.flags-small.flags-Guinea {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -100px
+}
+
+.flags-small.flags-Guinea-Bissau {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -100px
+}
+
+.flags-small.flags-Guatemala {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -100px
+}
+
+.flags-small.flags-Grenada {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -100px
+}
+
+.flags-small.flags-Grecee {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -100px
+}
+
+.flags-small.flags-Ghana {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -100px
+}
+
+.flags-small.flags-Germany {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -100px
+}
+
+.flags-small.flags-Georgia {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -110px
+}
+
+.flags-small.flags-Gambia {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -110px
+}
+
+.flags-small.flags-Gabon {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -110px
+}
+
+.flags-small.flags-France {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -110px
+}
+
+.flags-small.flags-Finland {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -110px
+}
+
+.flags-small.flags-Fiji {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -110px
+}
+
+.flags-small.flags-Ethiopia {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -110px
+}
+
+.flags-small.flags-Estonia {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -110px
+}
+
+.flags-small.flags-Eritrea {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -110px
+}
+
+.flags-small.flags-Equatorial-Guinea {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -110px
+}
+
+.flags-small.flags-El-Salvador {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -110px
+}
+
+.flags-small.flags-Egypt {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -110px
+}
+
+.flags-small.flags-Ecuador {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -120px
+}
+
+.flags-small.flags-East-Timor {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -120px
+}
+
+.flags-small.flags-Dominican-Republic {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -120px
+}
+
+.flags-small.flags-Dominica {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -120px
+}
+
+.flags-small.flags-Djibouti {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -120px
+}
+
+.flags-small.flags-Denmark {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -120px
+}
+
+.flags-small.flags-Czech-Republic {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -120px
+}
+
+.flags-small.flags-Cyprus {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -120px
+}
+
+.flags-small.flags-Cuba {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -120px
+}
+
+.flags-small.flags-Croatia {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -120px
+}
+
+.flags-small.flags-Cote-d_Ivoire {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -120px
+}
+
+.flags-small.flags-Costa-Rica {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -120px
+}
+
+.flags-small.flags-Congo-Republic {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -130px
+}
+
+.flags-small.flags-Congo-Democratic {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -130px
+}
+
+.flags-small.flags-Comoros {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -130px
+}
+
+.flags-small.flags-Colombia {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -130px
+}
+
+.flags-small.flags-China {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -130px
+}
+
+.flags-small.flags-Chile {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -130px
+}
+
+.flags-small.flags-Chad {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -130px
+}
+
+.flags-small.flags-Central-African-Republic {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -130px
+}
+
+.flags-small.flags-Cape-Verde {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -130px
+}
+
+.flags-small.flags-Canada {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -130px
+}
+
+.flags-small.flags-Cameroon {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -130px
+}
+
+.flags-small.flags-Cambodia {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -130px
+}
+
+.flags-small.flags-Burundi {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -140px
+}
+
+.flags-small.flags-Burkina-Faso {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -140px
+}
+
+.flags-small.flags-Bulgaria {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -140px
+}
+
+.flags-small.flags-Brunei {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -140px
+}
+
+.flags-small.flags-Brazil {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -140px
+}
+
+.flags-small.flags-Botswana {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -140px
+}
+
+.flags-small.flags-Bosnia-and-Herzegovina {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -140px
+}
+
+.flags-small.flags-Bolivia {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -140px
+}
+
+.flags-small.flags-Bhutan {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -140px
+}
+
+.flags-small.flags-Benin {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -140px
+}
+
+.flags-small.flags-Belize {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -140px
+}
+
+.flags-small.flags-Belgium {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -140px
+}
+
+.flags-small.flags-Belarus {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -150px
+}
+
+.flags-small.flags-Barbados {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -150px
+}
+
+.flags-small.flags-Bangladesh {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -150px
+}
+
+.flags-small.flags-Bahrain {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -150px
+}
+
+.flags-small.flags-Bahamas {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -150px
+}
+
+.flags-small.flags-Azerbaijan {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -150px
+}
+
+.flags-small.flags-Austria {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -150px
+}
+
+.flags-small.flags-Australia {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -150px
+}
+
+.flags-small.flags-Armenia {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -150px
+}
+
+.flags-small.flags-Argentina {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -150px
+}
+
+.flags-small.flags-Antigua-and-Barbuda {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -150px
+}
+
+.flags-small.flags-Andorra {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -150px
+}
+
+.flags-small.flags-Algeria {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -160px
+}
+
+.flags-small.flags-Albania {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -160px
+}
+
+.flags-small.flags-Afghanistan {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -160px
+}
+
+.flags-small.flags-Bermuda {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -160px
+}
+
+.flags-small.flags-European-Union {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -160px
+}
+
+.flags-small.flags-United-States {
+  width: 15px;
+  height: 9px;
+  background-position: -75px -160px
+}
+
+.flags-small.flags-XPT {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -160px
+}
+
+.flags-small.flags-XAU {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -160px
+}
+
+.flags-small.flags-XAG {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -160px
+}
+
+.flags-small.flags-Wallis-and-Futuna {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -160px
+}
+
+.flags-small.flags-Seborga {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -160px
+}
+
+.flags-small.flags-Aruba {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -160px
+}
+
+.flags-small.flags-Angola {
+  width: 15px;
+  height: 10px;
+  background-position: 0 -170px
+}
+
+.flags-small.flags-Saint-Helena {
+  width: 15px;
+  height: 10px;
+  background-position: -15px -170px
+}
+
+.flags-small.flags-Macao {
+  width: 15px;
+  height: 10px;
+  background-position: -30px -170px
+}
+
+.flags-small.flags-Jersey {
+  width: 15px;
+  height: 10px;
+  background-position: -45px -170px
+}
+
+.flags-small.flags-Isle-of-Man {
+  width: 15px;
+  height: 10px;
+  background-position: -60px -170px
+}
+
+.flags-small.flags-IMF {
+  width: 15px;
+  height: 10px;
+  background-position: -75px -170px
+}
+
+.flags-small.flags-Hong-Kong {
+  width: 15px;
+  height: 10px;
+  background-position: -90px -170px
+}
+
+.flags-small.flags-Guernsey {
+  width: 15px;
+  height: 10px;
+  background-position: -105px -170px
+}
+
+.flags-small.flags-Gibraltar {
+  width: 15px;
+  height: 10px;
+  background-position: -120px -170px
+}
+
+.flags-small.flags-Falkland-Islands {
+  width: 15px;
+  height: 10px;
+  background-position: -135px -170px
+}
+
+.flags-small.flags-Curacao {
+  width: 15px;
+  height: 10px;
+  background-position: -150px -170px
+}
+
+.flags-small.flags-Cayman-Islands {
+  width: 15px;
+  height: 10px;
+  background-position: -165px -170px
+}
+
+.flags-small.flags-Bitcoin {
+  width: 15px;
+  height: 10px;
+  background-position: -180px 0
+}
+
+.doubly-float .doubly-nice-select .list {
+  top: -271px;
+  left: 0;
+  right: auto
+}
+
+.doubly-nice-select,
+.doubly-nice-select .list {
+  background: #FFFFFF;
+}
+
+.doubly-nice-select .current,
+.doubly-nice-select .list .option {
+  color: #403F3F;
+}
+
+.doubly-nice-select .option:hover,
+.doubly-nice-select .option.focus,
+.doubly-nice-select .option.selected.focus {
+  background-color: #F6F6F6;
+}
+
+.price-on-hover {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+}
+
+.price-on-hover:after {
+  border-bottom-color: #333333 !important;
+}
+
+.doubly-message {
+  background-color: #333333 !important;
+  color: #FFFFFF !important;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+
+.form-check-input:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+input,
+input.form-control,
+textarea,
+textarea.form-control,
+.input-group-lg>.form-control {
+  font-size: var(--font-size-body);
+  border-radius: var(--border-radius);
+}
+
+.form-select:focus,
+.form-select:active {
+  box-shadow: none;
+}
+
+.header {
+  width: 100%;
+  background-color: var(--header-background);
+}
+
+.header.sticky-top {
+  /* align-self: flex-start; */
+  z-index: 20;
+}
+
+:root {
+  --header-background: #ffffff;
+  --color-main-menu-background: #f8f8f8;
+  --color-main-menu-text: #595959;
+  --color-header-icon: #000000;
+  --sub-menu-bg: #ffffff;
+  --sub-menu-color: #7D7D7D;
+}
+
+.header_main {
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px;
+  display: grid;
+}
+
+.icon-menu-minimal a,
+.header__link {
+  color: var(--color-header-icon, var(--color-main-menu-text));
+  text-decoration: none;
+}
+
+.icon-menu-minimal a:hover,
+.header__link a:hover {
+  color: var(--color-main-menu-text-hover, var(--color-primary));
+}
+
+.icon-menu-minimal {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.header_brand {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.header_brand.center {
+  grid-column: 2/4;
+  text-align: center;
+}
+
+.header_brand.center~.header_nav.inline {
+  grid-column: 1/2;
+}
+
+.header_nav {
+  background-color: var(--color-main-menu-background);
+  color: var(--color-main-menu-text);
+  font-size: 1.125rem;
+}
+
+.header_nav.inline {
+  grid-column: 2 / 4;
+  grid-row: 1/2;
+}
+
+.header_nav.below {
+  width: 100%;
+}
+
+/* 
+#header_navigation_items .list-group-item {
+  background-color: transparent;
+  border: none;
+  padding: 1.125rem 2.1875rem;
+} */
+
+.header_nav .list-group-item .dropdown-menu {
+  padding: 0.5rem 0;
+  display: block !important;
+  border-radius: var(--border-radius);
+  border: 1px solid #f8f8f8;
+  top: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+}
+
+.header_nav .list-group-item:hover .nav_item,
+.nav_item.active,
+.header__link:hover {
+  color: var(--color-main-menu-text-hover);
+}
+
+.header__link:hover svg,
+.header__link:hover svg>* {
+  fill: var(--color-primary);
+}
+
+.header svg {
+  width: 24px;
+  height: 24px;
+}
+
+.header_nav .list-group-item:hover .dropdown-menu,
+.dropdown-menu:hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item.sub_item:hover,
+.dropdown-item.sub_item:focus {
+  color: var(--color-primary);
+  background-color: inherit;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.list-group-item a {
+  text-decoration: none;
+  color: var(--color-main-menu-text, #595959);
+  padding: 0;
+}
+
+.sub_item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.col_sub {
+  padding: 1.875rem;
+}
+
+.nav_sub .sub_item {
+  color: var(--sub-menu-color, #7D7D7D);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 250px;
+}
+
+.nav_sub,
+.bg__aside_bar {
+  background-color: var(--sub-menu-bg, #ffffff);
+}
+
+.bg__aside_bar .header_nav {
+  background-color: transparent;
+}
+
+.bg__aside_bar #header_navigation_items .list-group-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0;
+}
+
+.bg__aside_bar .nav_sub {
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+
+.bg__aside_bar .nav_sub .sub_item {
+  max-width: 100%;
+  display: block;
+}
+
+.bg__aside_bar .nav_sub .sub_item:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.search_bar.center {
+  grid-column: 2 / 4;
+  grid-row: 1/2;
+}
+
+.search_bar.center .header_search {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.search_bar.left {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.header_icons {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  align-self: center;
+  font-size: 1.125rem;
+  color: var(--color-header-icon);
+}
+
+@media screen and (max-width: 991.98px) {
+  .header_main {
+    grid-template-rows: 4rem;
   }
+
+  .header_brand {
+    grid-column: 2/4;
+    text-align: center;
+  }
+}
+
+
+
+
+
+/* .header__link{
+font-size: 18px;
+color: var(--color-main-menu-text);
+}
+.header__link:hover, .header_nav:hover {
+color: var(--color-main-menu-text-hover);
+}
+.header_search:has(input.form-control:focus) {
+border-color: var(--color-primary) !important;
+}
+.header_nav_dropdown_content,
+.header_nav_background {
+background-color: var(--color-main-menu-background);
+} */
+/* .dropdown {
+position: relative;
+display: inline-block;
+}
+.header_nav_dropdown_content {
+display: none;
+position: absolute;
+width: calc(100% - (2 * var(--bs-gutter-x, 0.75rem))) !important;
+padding: 12px 16px;
+z-index: 1;
+} */
+/* .dropdown:hover> .header_nav_dropdown_content {
+display: block;
+}
+.header__link:hover,.header_nav:hover {
+color: var(--color-main-menu-text-hover);
+} */
+.announcement-bar {
+  background-color: var(--color-announcement-bar-background);
+  color: var(--color-announcement-bar-text);
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.announcement-bar p {
+  margin-bottom: 0;
+}
+
+#header_navigation_items .list-group-item {
+  font-size: 1.125rem;
+  background-color: transparent;
+  border: none;
+  padding: 1.125rem 1.5rem;
+}
+
+/* .list-group-item{
+background-color: transparent;
+border: 0;
+}
+.list-group-item a{
+text-decoration: none;
+color: var(--color-main-menu-text);
+}
+.list-group-item a.active{
+color: var(--color-primary);
+} */
+/* .item-link:hover {
+color: var(--color-primary);
+}
+.list-group-item .dropdown-menu{
+background: transparent;
+border: none;
+padding-top: 37px;
+min-width: 250px;
+}
+.list-group-item .dropdown-menu.right{
+right: 0;
+}
+.header_rich_menu .list-group-item::after {
+  color: var(--color-main-menu-text);
+} */
+/* .dropdown-menu-header {
+  font: var(--font-variant-body) var(--font-size-body) var(--font-family-body);
+  color: var(--body-text-color);
+  text-decoration: var(--font-text-decoration-body);
+  background: var(--color-main-menu-background);
+  border: 1px solid #ddd;
+  padding: 0.5rem 0;
+}
+.dropdown-menu-header .dropdown-item {
+  padding: 0.5rem 1rem;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+/* .list-group-item .dropdown-menu{
+  padding: 0;
+  display: block !important;
+  top: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+transform: translateY(20px);
+}
+.list-group-item .dropdown-menu.menu-md{
+min-width: 545px;
+}
+.list-group-item .dropdown-menu.menu-lg{
+min-width: 795px;
+}
+.dropdown-menu-header.dropdown-menu-start[data-bs-popper] {
+  left: -1rem;
+}
+.list-group-item:hover .dropdown-menu, .dropdown-menu:hover{ 
+visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+} */
+
+/* .header_main .offcanvas {
+background-color: var(--body-bg-color);
+} */
+/* .offcanvas-body .list-group, .offcanvas-body .list-group-item{
+background-color: transparent;
+color: var(--body-text-color);
+padding-left: 0;
+} */
+/* .offcanvas-body .list-group, .offcanvas-body .list-group-item a{
+color: var(--body-text-color);
+} */
+/* .offcanvas-body .list-group{
+margin-left: -1rem;
+  margin-right: -1rem;
+} */
+/* .offcanvas-body .list-group-item{
+padding: 1rem;
+border-bottom: 1px solid #ddd;
+} */
+.bi-chevron-down[aria-expanded="true"]::before {
+  transform: rotate(180deg);
+}
+
+/* .header_rich_menu {
+  grid-area: navigation
+} */
+
+/* .header_rich_menu .dropdown-item{
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.header_rich_menu .dropdown-item:hover, .header_rich_menu .dropdown-item.active {
+background: var(--color-main-menu-background);
+color: var(--color-primary);
+} */
+
+.header_brand {
+  grid-area: brand;
+}
+
+.header_brand img {
+  max-height: 80px;
+  max-width: 200px;
+  margin: 0.5rem 0;
+}
+
+.header_icons {
+  grid-area: icons;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+}
+
+/* .icon-menu-minimal {
+  grid-area: menu
+} */
+
+/* .icon-menu-minimal a,
+.icon-menu-minimal a:hover {
+color: var(--body-text-color);
+} */
+
+.bg-size-cover {
+  background-size: cover !important
+}
+
+.bg-size-contain {
+  background-size: contain !important
+}
+
+.bg_header_bar_rich .header_main {
+  grid-template-areas: "brand search search icons";
+  align-items: center;
+  display: grid;
+  min-height: var(--header-height);
+  max-height: var(--header-height);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.bg_header_bar_rich .header_main .header_search {
+  grid-area: search;
+  margin: 0 auto;
+  max-width: 400px;
+  border-radius: var(--border-radius);
+}
+
+.bg_header_bar_rich .header_main .header_search .form-control:focus {
+  border-color: #000
+}
+
+.bg_header_bar_rich .header_main .header_search .form-control:focus~.input-group-text {
+  border-color: #000
+}
+
+.bg_header_bar_rich.centered_logo .header_main {
+  grid-template-areas: "search brand brand icons";
+}
+
+.bg_header_bar_rich.centered_logo .header_main .header_brand {
+  text-align: center
+}
+
+.bg_header_bar_rich.centered_logo .header_main .header_search {
+  max-width: 350px;
+  margin: 0
+}
+
+.bg_header_bar_inline,
+.bg_header_bar_minimal {
+  border-bottom: 1px solid #CFD8DC;
+}
+
+.bg_header_bar_inline .header_main {
+  display: grid;
+  grid-template-areas: "brand navigation navigation navigation  icons";
+  min-height: var(--header-height);
+  max-height: var(--header-height);
+  align-items: center;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.bg_header_bar_minimal .header_main {
+  display: grid;
+  min-height: var(--header-height);
+  grid-template-areas: "menu brand icons";
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center
+}
+
+.bg_header_bar_minimal .header_main .header_brand {
+  justify-self: center
+}
+
+@media screen and (max-width: 991.98px) {
+  :root {
+    --header-height: 4rem;
+  }
+
+  .header_nav_dropdown_content,
+  .header_nav_background {
+    background-color: transparent;
+  }
+
+  .bg_header_bar_rich .header_main,
+  .bg_header_bar_rich.centered_logo .header_main {
+    grid-template-areas: "menu brand brand icons"
+  }
+
+  .bg_header_bar_inline .header_main {
+    grid-template-areas: "menu brand brand icons";
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .header_brand {
+    justify-self: center
+  }
+
+  .header_brand img {
+    max-width: 150px;
+    max-height: 50px;
+  }
+}
+
+.font-heading {
+  font: var(--font-variant-heading) var(--font-size-heading) var(--font-family-heading);
+  color: var(--heading-text-color);
+  text-decoration: var(--font-text-decoration-heading);
+  text-transform: var(--text-transform-heading);
+}
+
+.font-heading-xl {
+  font-size: 3.75rem;
+}
+
+.font-heading-lg {
+  font-size: 2.5rem;
+}
+
+.component_heading {
+  /* font: var(--font-variant-heading) var(--font-size-heading) var(--font-family-heading); */
+  font: var(--font-variant-heading) clamp(1.5rem, 1.275rem + .5vw, var(--font-size-heading)) var(--font-family-heading);
+  color: var(--heading-text-color);
+  text-decoration: var(--font-text-decoration-heading);
+  /* text-transform: var(--text-transform-heading); */
+}
+
+@media screen and (max-width: 991.98px) {
+  h4.component_heading {
+    text-align: center;
+    /* font-size: 2.125rem; */
+    margin-bottom: 0;
+  }
+
+  .component_desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Feature product */
+.grid-product {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+}
+
+.grid-product.repeat-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.product_title {
+  color: var(--color-product-detail-name);
+  word-break: break-word;
+  position: relative;
+  font-size: 1.125rem;
+  text-decoration: none;
+}
+
+.product_title:hover {
+  color: var(--color-primary);
+}
+
+.product_sale_price {
+  font-size: 1.25rem;
+  color: var(--color-product-detail-price);
+}
+
+.product_current_price {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.fc_image_product {
+  border-radius: var(--border-radius);
+  border: 1px solid #e4e2e2;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.product-colors {
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: 15px;
+  visibility: hidden;
+  max-width: 350px;
+}
+
+.product-colors span {
+  width: 15px;
+  height: 15px;
+}
+
+.wrap-product:hover .product-colors {
+  visibility: visible;
+}
+
+.collection_img,
+.product__img {
+  transform: scale(1);
+  object-fit: cover;
+  transition: all 2s ease-out;
+}
+
+.wrap-product:hover .product__img,
+.item-grid-box:hover .collection_img {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 767.98px) {
+  .product_title {
+    font-size: 1rem;
+  }
+
+  .product_current_price,
+  .product_sale_price {
+    font-size: 1.125rem;
+  }
+}
+
+/* Gallery */
+.gallery__grid {
+  display: grid;
+}
+
+.gallery__gap {
+  column-gap: var(--gap, 1.25rem);
+  row-gap: var(--gap, 1.25rem);
+}
+
+.gallery__img {
+  margin-bottom: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+.gallery__img img {
+  object-fit: contain;
+}
+
+.gallery__img-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  height: 100%;
+}
+
+.gallery__img-overlay {
+  background-color: var(--overlay, #685858);
+  opacity: var(--opc, 0.3);
+}
+
+.gallery__img:hover .gallery__img-overlay {
+  opacity: 0.6;
+}
+
+/* Footer */
+.burger-footer {
+  background-color: var(--color-footer-background);
+  color: var(--color-footer-text);
+  padding-top: 2.5rem;
+  position: relative;
+  --footer-spacing: 1.25rem;
+  margin-top: auto;
+}
+
+.heading-columns-footer {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-footer-heading);
+  margin-bottom: 1.25rem;
+}
+
+.footer__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem calc(var(--footer-spacing) * -1 + 1.75rem);
+  margin-left: calc(var(--footer-spacing) * -1);
+}
+
+.footer__child {
+  width: var(--w);
+  padding-bottom: var(--footer-spacing);
+  padding-left: var(--footer-spacing);
+}
+
+.footer__logo {
+  margin-bottom: 1.25rem;
+  max-height: 80px;
+  max-width: 200px;
+}
+
+.footer-label {
+  margin-bottom: 1rem;
+}
+
+.footer-newsletter .footer-label {
+  margin-bottom: 1.25rem;
+}
+
+.footer-label a {
+  color: var(--color-footer-text);
+  text-decoration: none;
+  transition: color 0.2s linear;
+}
+
+.footer-label a:hover {
+  color: var(--color-primary);
+}
+
+.footer-divider {
+  border-color: var(--color-footer-border) !important;
+}
+
+.footer-report img {
+  max-width: 300px;
+  max-height: 100px;
+}
+
+.input-newsletter .form-control {
+  border: 1px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-footer-text);
+}
+
+.btn-newsletter {
+  font: var(--font-variant-body) var(--font-size-body) var(--font-family-body) !important;
+}
+
+@media screen and (max-width: 575.98px) {
+  .footer__child {
+    width: 100%;
+  }
+}
+
+/* Customize */
+.btn {
+  font: var(--font-variant-button-link) var(--font-size-button-link) var(--font-family-button-link);
+  text-decoration: var(--font-text-decoration-button-link);
+  text-transform: var(--text-transform-button-link);
+  border-radius: var(--border-radius);
+  padding: .75rem 1.5625rem;
+  line-height: 1.4;
+  transition: all 0.3s linear;
+}
+
+.btn:focus,
+.btn:active:focus {
+  box-shadow: none;
+}
+
+.btn svg {
+  fill: currentColor;
+  width: calc(var(--font-size-button-link) * 1.375);
+  height: calc(var(--font-size-button-link) * 1.375);
+}
+
+a svg {
+  fill: currentColor;
+  width: var(--font-size-button-link);
+  height: var(--font-size-button-link);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shape-size-md {
+  min-width: 11.25rem;
+}
+
+.shape-square-md {
+  width: 3.125rem;
+  height: 3.125rem;
+}
+
+.btn-bg-outline-primary {
+  border-color: var(--button-background-color);
+  background-color: var(--body-bg-color);
+  color: var(--button-background-color);
+}
+
+.btn-bg-outline-primary:hover {
+  background-color: var(--color-background-button);
+  border-color: var(--color-background-button);
+  color: var(--color-text-button);
+}
+
+@media (max-width: 767.98px) {
+  .btn-bg-outline-primary {
+    border-color: var(--color-background-button);
+    background-color: var(--color-background-button);
+    color: var(--color-text-button);
+  }
+
+  .btn-bg-outline-primary:hover {
+    border-color: var(--button-background-color-hover);
+    background-color: var(--button-background-color-hover);
+    color: var(--color-text-button);
+  }
+}
+
+.btn-bg-primary {
+  background-color: var(--color-background-button);
+  color: var(--color-text-button);
+}
+
+.btn-bg-primary:hover {
+  background-color: var(--button-background-color-hover);
+  color: var(--color-text-button);
+}
+
+.btn-bg-secondary {
+  background-color: transparent;
+  color: var(--color-background-button);
+  border: 1px solid;
+  border-color: var(--color-background-button);
+}
+
+.btn-bg-secondary:hover {
+  background-color: transparent;
+  color: var(--button-background-color-hover);
+  border-color: var(--button-background-color-hover);
+}
+
+.btn-paypal {
+  border: solid 1px #ffc439;
+  background: #ffc439;
+  display: flex;
+  justify-content: center;
+  color: #363636;
+}
+
+.btn-paypal:hover {
+  filter: brightness(0.95);
+}
+
+.btn-paypal img {
+  width: 100px;
+}
+
+.btn-paypal span {
+  margin-top: 2px;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.h_spacing {
+  column-gap: 0.5rem;
+}
+
+.v_spacing {
+  row-gap: 0.5rem;
+}
+
+.text-link-primary,
+.text-link-primary:hover {
+  position: relative;
+  font: var(--font-variant-button-link) var(--font-size-button-link) var(--font-family-button-link);
+  text-decoration: var(--font-text-decoration-button-link);
+  text-transform: var(--text-transform-button-link);
+  color: var(--color-primary);
+  min-width: fit-content;
+}
+
+.text-link-primary::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  left: 0;
+  transition: 0.35s ease all;
+  bottom: 0;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.text-link-primary:hover::before {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .mt-lg-4dot5 {
+    margin-top: 2rem !important;
+  }
+
+  .mb-lg-4dot5 {
+    margin-bottom: 2rem !important;
+  }
+}
+
+.mb-block-default {
+  margin-bottom: 4.75rem
+}
+
+.mb-block-large {
+  margin-bottom: 6.25rem
+}
+
+.mb-block-medium {
+  margin-bottom: 5.25rem
+}
+
+@media screen and (max-width: 767.98px) {
+
+  .mb-block-default,
+  .mb-block-large,
+  .mb-block-medium {
+    margin-bottom: 3rem !important;
+  }
+}
+
+.mb-block-as-gap {
+  margin-bottom: var(--gap);
+}
+
+.shape-tangle {
+  padding-top: 50%
+}
+
+.shape-squared {
+  padding-top: 100%
+}
+
+.block_heading {
+  margin-bottom: 2rem
+}
+
+@media screen and (max-width: 991.98px) {
+  .block_heading {
+    margin-bottom: 1rem
+  }
+}
+
+/* Media - responsive */
+@media screen and (max-width:1367.98px) {
+  :root {
+    --font-size-body: 87.5%;
+  }
+}
+
+@media screen and (max-width: 1023.98px) {
+  .grid-product {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-product.repeat-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+
+  .heading-banner,
+  .content-banner {
+    color: var(--heading-text-color) !important;
+    max-width: 100%;
+  }
+
+  .heading-banner {
+    font-size: 2.5rem !important;
+  }
+
+  .header__heading {
+    justify-self: center;
+  }
+
+  .grid-product {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .container-lg {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  :root {
+    --gap: 1.25rem;
+    --font-size-heading: 1.5rem !important;
+  }
+
+  .collection_default .grid-collection .item-grid-box .collection_name {
+    margin-top: 0.75rem;
+    font-size: 1.125rem;
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .font-heading-lg {
+    font-size: 2.5rem;
+  }
+}
+
+/* Custom css */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.custom-rounded {
+  border-radius: var(--border-radius);
+}
+
+.breadcrumb {
+  margin: 25px 0;
+}
+
+.breadcrumb-item {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 112.5%;
+}
+
+.breadcrumb-item a {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  color: var(--color-primary);
+}
+
+.dropdown-item a {
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item.active,
+.dropdown-item:active {
+  background: #fff;
+}
+
+.dropdown-item:hover a,
+.dropdown-item:focus a,
+.dropdown-item.active a,
+.dropdown-item:active a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.item-hidden {
+  display: none;
+}
+
+input.form-control:focus,
+select.form-control:focus,
+textarea.form-control:focus {
+  border: solid 1px var(--color-primary);
+  box-shadow: none;
+}
+
+.qty-select {
+  display: inline-flex;
+}
+
+.qty-select input {
+  font-size: 1.125rem;
+  text-align: center;
+  width: 70px;
+  height: 40px;
+  border: 1px solid #CFD8DC;
+  border-radius: var(--border-radius);
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.qty-select input:hover,
+.qty-select input:focus {
+  border: 1px solid var(--color-primary);
+  outline: none;
+}
+
+.qty-select i {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: transparent;
+  border: 1px solid #CFD8DC;
+  border-radius: var(--border-radius);
+  font-size: 1.5rem;
+}
+
+.has-error .form-control {
+  border-color: var(--bs-danger);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.loader-modal {
+  display: none;
+  position: fixed;
+  z-index: 1999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.loader {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 1999;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  border: 3px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 3px solid var(--color-primary);
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.small-loading {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  border-top: 2px solid #f3f3f3;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display: none;
+}
+
+.div-loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  opacity: 0.7;
+  z-index: 101;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.noti-header {
+  color: #fff;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 11px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  position: absolute;
+  top: 0px;
+  right: -6px;
+}
+
+.cart-tooltip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 15px;
+  width: 400px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: var(--body-bg-color);
+  text-align: left;
+  opacity: 0;
+  display: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  /* display: block !important; */
+  -webkit-transform: translateY(40px);
+  -moz-transform: translateY(40px);
+  -o-transform: translateY(40px);
+  transform: translateY(40px);
+  z-index: 100;
+  border: 1px solid var(--body-text-color);
+}
+
+.cart-tooltip .cart-list {
+  max-height: 50vh;
+  overflow-y: auto;
+  padding: 5px;
+}
+
+.cart-tooltip .img-item {
+  width: 60px;
+  margin-right: 5px;
+}
+
+.cart-tooltip .title-item {
+  font-size: 0.8rem;
+}
+
+.cart-tooltip .cart-remove i {
+  color: #ababab;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.header-noti-cart i {
+  line-height: 40px;
+}
+
+.header-noti-cart:hover .cart-tooltip,
+.cart-tooltip:hover {
+  opacity: 1;
+  display: block;
+}
+
+.dropdown-menu-search {
+  top: -39px !important;
+  right: -9px !important;
+  background-color: #fff;
+  border: 1px solid #000000;
+}
+
+.dropdown-menu-search .header-search input {
+  min-width: 300px;
+  background-color: transparent;
+  font-style: italic;
+  color: var(--body-text-color);
+}
+
+.dropdown-menu-search .header-search i {
+  color: var(--color-primary);
+}
+
+/* Nav tab */
+.nav-tabs .nav-link {
+  font: var(--font-variant-body) var(--font-size-body) var(--font-family-body);
+  color: var(--body-text-color);
+  border: 0;
+  border-bottom: 3px solid transparent;
+  font-weight: 600;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--body-text-color);
+  border-bottom: 3px solid var(--color-primary);
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  background: transparent;
+}
+
+.spinner-border {
+  color: var(--color-primary);
+}
+
+.page-link,
+.page-link:hover {
+  color: var(--body-text-color);
+}
+
+.wishlist-product {
+  position: absolute;
+  padding: 10px;
+  top: 7px;
+  right: 5px;
+  font-size: 16px;
+  z-index: 19;
+  cursor: pointer;
+  color: #9f9d9d;
+}
+
+.wishlist-product .fas.fa-heat {
+  color: #d63031;
+}
+
+.ratio-31x37 {
+  --bs-aspect-ratio: calc(37 / 31 * 100%)
+}
+
+.preferences {
+  position: fixed;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 100;
+  background-color: transparent;
+}
+
+.preferences .dropdown-toggle {
+  padding: 10px;
+  border: 1px solid #cfd8dc;
+  border-radius: var(--border-radius);
+  background-color: var(--body-bg-color);
+}
+
+.preferences .dropdown-menu {
+  width: 300px;
+  padding: 15px;
+  height: 500px;
+  overflow-y: auto;
+}
+
+.preferences .dropdown-menu li a {
+  overflow-x: hidden;
+}
+
+.preferences .dropdown-menu li:hover,
+.preferences .dropdown-menu li.active {
+  overflow-x: hidden;
+  background-color: #F6F6F6;
+}
+
+.preferences .dropdown-menu li a span.flags {
+  min-width: 30px;
+}
+
+
+.padding_content {
+  padding: 0 5rem
+}
+
+.padding_content .heading-banner {
+  font-size: 2.5rem
+}
+
+.padding_content .content-banner {
+  font-size: 1.125rem
+}
+
+@media screen and (max-width: 575.98px) {
+  .padding_content {
+    padding: 0 1rem;
+  }
+}
+
+.discount-box {
+  background: #D2F3FA;
+  padding: 10px;
+}
+
+.text-calculated {
+  font-size: 0.8rem;
+}
+
+.grid-product-2 .wishlist-product {
+  top: 0px;
+  right: 0px;
+}
+
+.grid-product-2 .fc_image_product {
+  width: 100px;
+}
+
+.grid-product-2 hr {
+  color: #b5b5b5;
+}
+
+.offcanvas-search {
+  height: 130px;
+  padding: 50px 0;
+}
+
+.btn-product-add-cart {
+  position: absolute;
+  bottom: 0;
+  visibility: hidden;
+  top: unset !important;
+  transition: all 0.25s ease;
+  transform: translateY(100%);
+  height: auto !important;
+}
+
+.wrap-product:hover .btn-product-add-cart {
+  visibility: visible;
+  transform: translateY(0%);
+}
+
+@media screen and (max-width: 767.98px) {
+  .btn-product-add-cart {
+    visibility: visible;
+    transform: translateY(0%);
+    font-size: 1rem;
+  }
+}
+
+.color-primary {
+  color: var(--color-primary);
+}
+
+/* Owl carousel */
+.owl-carousel,
+.owl-carousel .owl-item {
+  -webkit-tap-highlight-color: transparent;
+  position: relative
+}
+
+.owl-carousel {
+  display: none;
+  width: 100%;
+  z-index: 1
+}
+
+.owl-carousel .owl-stage {
+  position: relative;
+  -ms-touch-action: pan-Y;
+  touch-action: manipulation;
+  -moz-backface-visibility: hidden
+}
+
+.owl-carousel .owl-stage:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0
+}
+
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0)
+}
+
+.owl-carousel .owl-item,
+.owl-carousel .owl-wrapper {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0)
+}
+
+.owl-carousel .owl-item {
+  min-height: 1px;
+  float: left;
+  -webkit-backface-visibility: hidden;
+  -webkit-touch-callout: none
+}
+
+.owl-carousel .owl-item img {
+  display: block;
+  width: 100%
+}
+
+.owl-carousel .owl-dots.disabled,
+.owl-carousel .owl-nav.disabled {
+  display: none
+}
+
+.no-js .owl-carousel,
+.owl-carousel.owl-loaded {
+  display: block
+}
+
+.owl-carousel .owl-dot,
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-nav .owl-prev {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel button.owl-dot {
+  background: 0 0;
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  font: inherit
+}
+
+.owl-carousel.owl-loading {
+  opacity: 0;
+  display: block
+}
+
+.owl-carousel.owl-hidden {
+  opacity: 0
+}
+
+.owl-carousel.owl-refresh .owl-item {
+  visibility: hidden
+}
+
+.owl-carousel.owl-drag .owl-item {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+.owl-carousel.owl-grab {
+  cursor: move;
+  cursor: grab
+}
+
+.owl-carousel.owl-rtl {
+  direction: rtl
+}
+
+.owl-carousel.owl-rtl .owl-item {
+  float: right
+}
+
+.owl-carousel .animated {
+  animation-duration: 1s;
+  animation-fill-mode: both
+}
+
+.owl-carousel .owl-animated-in {
+  z-index: 0
+}
+
+.owl-carousel .owl-animated-out {
+  z-index: 1
+}
+
+.owl-carousel .fadeOut {
+  animation-name: fadeOut
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 0
+  }
+}
+
+.owl-height {
+  transition: height .5s ease-in-out
+}
+
+.owl-carousel .owl-item .owl-lazy {
+  opacity: 0;
+  transition: opacity .4s ease
+}
+
+.owl-carousel .owl-item .owl-lazy:not([src]),
+.owl-carousel .owl-item .owl-lazy[src^=""] {
+  max-height: 0
+}
+
+.owl-carousel .owl-item img.owl-lazy {
+  transform-style: preserve-3d
+}
+
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000
+}
+
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transition: transform .1s ease
+}
+
+.owl-carousel .owl-video-play-icon:hover {
+  -ms-transform: scale(1.3, 1.3);
+  transform: scale(1.3, 1.3)
+}
+
+.owl-carousel .owl-video-playing .owl-video-play-icon,
+.owl-carousel .owl-video-playing .owl-video-tn {
+  display: none
+}
+
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity .4s ease
+}
+
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%
+}
+
+/* Owl theme */
+.owl-theme .owl-dots,
+.owl-theme .owl-nav {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent
+}
+
+.owl-theme .owl-nav {
+  margin-top: 10px
+}
+
+.owl-theme .owl-nav [class*=owl-] {
+  color: #FFF;
+  font-size: 14px;
+  margin: 5px;
+  background: #D6D6D6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 3px
+}
+
+.owl-theme .owl-nav [class*=owl-]:hover {
+  background: #869791;
+  color: #FFF;
+  text-decoration: none
+}
+
+.owl-theme .owl-nav .disabled {
+  opacity: .5;
+  cursor: default
+}
+
+.owl-theme .owl-nav.disabled+.owl-dots {
+  margin-top: 10px
+}
+
+.owl-theme .owl-dots .owl-dot {
+  display: inline-block;
+  zoom: 1
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  margin: 5px 7px;
+  background: #D6D6D6;
+  display: block;
+  -webkit-backface-visibility: visible;
+  transition: opacity .2s ease;
+  border-radius: 30px
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: #869791
+}
+
+.owl-stage div.no-image {
+  height: 500px;
+}
+
+@media screen and (max-width: 991.98px) {
+  .owl-stage div.no-image {
+    height: 300px;
+  }
+}
+
+/* Carousel */
+.slide_bg_rounded {
+  border-radius: var(--border-radius);
+}
+
+.slideshow-item {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner-res {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(-50%);
+}
+
+.heading-banner {
+  margin-bottom: 1.25rem !important;
+}
+
+.content-banner {
+  max-width: 31.44rem;
+  font-size: 1.25rem;
+  margin-bottom: 3.125rem;
+  color: var(--color-banner-text);
+}
+
+.custom-nav-abs {
+  background-color: transparent !important;
+  color: var(--body-text-color) !important;
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 40%);
+  width: 40px;
+  height: 40px;
+}
+
+.custom-nav-abs i {
+  font-size: 1.5rem;
+}
+
+.custom-nav-abs,
+.btn-nav-abs {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.4;
+  border-radius: 50% !important;
+}
+
+.custom-nav-abs.owl-prev {
+  left: -4rem;
+}
+
+.custom-nav-abs.owl-next {
+  right: -4rem;
+}
+
+.btn-nav-abs {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.owl-carousel-slider:hover .btn-nav-abs {
+  visibility: visible;
+  opacity: 0.4;
+  transform: translate(0, -50%);
+}
+
+.btn-nav-abs.owl-prev {
+  left: 3.875rem;
+  transform: translate(-40px, -50%);
+}
+
+.btn-nav-abs.owl-next {
+  right: 3.875rem;
+  transform: translate(40px, -50%);
+}
+
+@media screen and (max-width:1367.98px) {
+  .content-banner {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  .banner-res {
+    position: unset;
+    top: unset;
+    transform: unset;
+  }
+
+  .heading-banner,
+  .content-banner {
+    color: #000000;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .custom-nav-abs.owl-prev {
+    left: -1rem;
+  }
+
+  .custom-nav-abs.owl-next {
+    right: -1rem;
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  .content-banner {
+    font-size: 1rem;
+  }
+
+  .content-banner * {
+    color: var(--body-text-color) !important;
+  }
+
+  .padding_content {
+    padding: 0 1rem;
+  }
+
+  .shape-size-md {
+    min-width: 10rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1.5625rem;
+  }
+}
+
+.fc_grid .fc_products {
+  display: grid;
+  row-gap: calc(var(--gap) + 0.5rem);
+  column-gap: var(--gap);
+}
+
+.product_title {
+  color: var(--color-product-detail-name);
+  transition: all ease .3s;
+}
+
+.product_title,
+.collection_name * {
+  transition: all ease .3s;
+}
+
+.product_sale_price {
+  color: var(--color-product-detail-price);
+}
+
+@media screen and (max-width: 767.98px) {
+
+  .fc_grid .fc_product_fit,
+  .fc_grid .fc_products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 2rem;
+  }
+}
+
+.grid_col_2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid_col_3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid_col_4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid_col_5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid_col_6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+@media screen and (max-width: 767.98px) {
+
+  .grid_col_4,
+  .grid_col_5,
+  .grid_col_6 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .collection_default .grid-collection .item-grid-box .collection_name {
+    font-size: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  .collection_default .grid-collection.grid_col_2 .collection_name,
+  .collection_default .grid-collection.grid_col_3 .collection_name {
+    font-size: 1.25rem;
+  }
+
+  .collection_name {
+    color: var(--body-text-color);
+    margin-bottom: 0;
+    margin-top: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+
+  .grid_col_2,
+  .grid_col_3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .grid_col_6,
+  .grid_col_4,
+  .grid_col_5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.section__overlay {
+  position: absolute;
+  z-index: 2;
+}
+
+.section__overlay-top {
+  top: 0;
+  width: 100%;
+  left: 0;
+  border-bottom: 2px solid #acc8e3;
+}
+
+.section__overlay-bottom {
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  border-top: 2px solid #acc8e3;
+}
+
+.section__overlay-left {
+  top: 0;
+  height: 100%;
+  left: 0;
+  border-right: 2px solid #acc8e3;
+}
+
+.section__overlay-right {
+  top: 0;
+  height: 100%;
+  right: 0;
+  border-left: 2px solid #acc8e3;
+}
+
+.section__action {
+  margin-top: 1rem;
+}
+
+.gap-section {
+  height: 1.25rem;
+}
+
+@media screen and (max-width: 767.98px) {
+  .gap-section {
+    height: 1rem;
+  }
+}
+
+/* Email signup */
+.esu-wrapper {
+  background-color: var(--bg-color);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.esu__desc {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form__field-wrapper {
+  max-width: var(--mw, 36rem);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form__field-wrapper .form-control {
+  border-color: var(--color-primary);
+  color: var(--body-text-color);
+}
+
+@media screen and (max-width: 767.98px) {
+  .esu-wrapper {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.page-link {
+  background: transparent;
+}
+
+.modal-content {
+  background-color: var(--body-bg-color);
+}
+
+#header_search_mobile {
+  background: transparent;
+  color: var(--body-text-color);
+}
+
+.bg__aside_bar {
+  background-color: var(--body-bg-color);
+}
+
+.select2-container--default .select2-results__option {
+  color: #000000;
+}
+
+.form-select:focus {
+  border-color: var(--color-primary);
+}
+
+@media (max-width: 767.98px) {
+  [id^='h_esu'] .ratio-4x1 {
+    --bs-aspect-ratio: 100%;
+  }
+}
+
+.item-info {
+  font-size: 0.9rem;
+  color: #747474;
+  word-break: break-word;
+}
+
+.cart-tooltip .title-item .item-info {
+  font-size: 0.8rem;
+}
+
+.section__title {
+  flex: 1 1 auto;
+}
+
+.csct__wrapper {
+  display: flex;
+  margin-left: -1.25rem;
+  margin-bottom: -1.25rem;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.csct__heading {
+  margin-bottom: 1.5rem;
+}
+
+.custom__item {
+  width: var(--w-item);
+  flex: 0 0 auto;
+  align-self: var(--als);
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.custom__item-inner {
+  width: 100%;
+}
+
+.custom__item-inner img {
+  object-fit: cover;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 767.98px) {
+  .custom__item {
+    width: 100%;
+  }
+}
+
+.d-f-none {
+  display: none !important;
+}
+
+.trust_badge img {
+  max-width: 100%;
+}
+
+.gallery__nav {
+  justify-content: center;
+}
+
+.gallery__nav-btn {
+  background-color: transparent !important;
+  color: var(--body-text-color) !important;
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 40%);
+  width: 2.5rem;
+  height: 2.25rem;
+}
+
+.gallery__nav-btn i {
+  font-size: 1.25rem;
+}
+
+/* Collapse content */
+.clc__content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: var(--clc-direction);
+  row-gap: var(--clc-spacing);
+  column-gap: var(--clc-spacing);
+}
+
+.clc__item {
+  flex: 1 0 auto;
+  width: calc(50% - var(--clc-spacing) / 2);
+  max-width: 100%;
+}
+
+.clc__item-image {
+  object-fit: cover;
+  width: 100%;
+}
+
+@media screen and (max-width: 767.98px) {
+  .clc__content {
+    flex-direction: row;
+  }
+
+  .clc__item {
+    width: 100%;
+  }
+}
+
+.clc__row-heading {
+  padding: 0.5rem;
+  font-size: calc(var(--font-size-body) * 1.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-primary);
+  border-radius: var(--border-radius);
+}
+
+.clc__row-heading:after {
+  font-family: 'Font Awesome 5 Pro';
+  content: "\f077";
+  transition: all 0.5s;
+  color: var(--color-primary);
+}
+
+.clc__row-heading.collapsed {
+  border-bottom: 1px solid #e4e2e2;
+}
+
+.clc__row-heading.collapsed:after {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+  color: var(--body-text-color);
+}
+
+.clc__item-heading {
+  display: flex;
+  align-items: center;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.clc__row-heading.collapsed .clc__item-heading {
+  color: var(--body-text-color);
+}
+
+.clc__item-heading>svg {
+  width: calc(var(--font-size-body) * 1.25);
+  height: calc(var(--font-size-body) * 1.25);
+  fill: var(--color-primary);
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+[id^='clc_item'] {
+  background-color: #f8f9fa;
+}
+
+.clc__wrapper:not(:has(.ratio)) {
+  max-width: 45.5rem;
+}
+
+.is-divider {
+  display: block;
+  position: relative;
+  border-top: 0.1rem solid #dcdcdc;
+  height: 0.1rem;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.is-divider[data-content]::after {
+  background: #fff;
+  color: #b5b5b5;
+  content: attr(data-content);
+  display: inline-block;
+  font-size: .75rem;
+  padding: 0.4rem 0.8rem;
+  transform: translateY(-1.1rem);
+  text-align: center;
+}
+
+.cookie-bar {
+  position: fixed;
+  width: 100%;
+  padding: 20px 40px;
+  z-index: 2000;
+  border-top: 1px solid rgba(15, 23, 8, .05);
+  box-shadow: 0 24px 64px 24px rgba(0, 0, 0, .1);
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  font-size: 14px;
+}
+
+.cookie-bar .cookie-bar_text {
+  font-size: 14px;
+}
+
+@media (min-width: 1200px) {
+  .cookie-bar .cookie-bar_text {
+    width: 757px;
+  }
+}
+
+.cookie-bar .cookie-bar_btn {
+  min-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.cookie-bar .cookie-bar_btn .btn {
+  font-size: 16px;
+}
+
+@media (max-width: 991px) {
+  .cookie-bar {
+    padding: 20px 15px;
+  }
+
+  .cookie-bar .cookie-bar_btn {
+    min-width: 100%;
+    justify-content: start;
+  }
+
+}
+
+.cookie-bar .cookie-bar_close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+/* Product tab */
+.product__tab {
+  --bgp-rounded: 0;
+  --bgp-tab-color: var(--body-text-color);
+  --bgp-border-color: transparent;
+  --bgp-border-color-active: transparent transparent var(--body-text-color);
+  --bgp-border-width: 1px;
+  --bgp-tab-active-bg: transparent;
+  --bgp-tab-bg: transparent;
+  --bgp-tab-divider-color: #CFD8DC;
+}
+
+.product__tab .nav-tabs {
+  border-bottom-color: var(--bgp-tab-divider-color);
+}
+
+.product__tab .nav-tabs .nav-link {
+  flex: var(--bgp-flex);
+  font-weight: 500;
+  font-size: 1rem;
+  border: calc(var(--bgp-border-width) / 2) solid var(--bgp-border-color);
+  margin-bottom: calc(-1 * var(--bgp-border-width));
+  background-color: var(--bgp-tab-bg);
+  border-top-left-radius: var(--bgp-rounded);
+  border-top-right-radius: var(--bgp-rounded);
+  color: var(--bgp-tab-color);
+}
+
+.product__tab .nav-tabs .nav-link.active {
+  background-color: var(--bgp-tab-active-bg);
+  border-color: var(--bgp-border-color-active);
+}
+
+.product__tab .nav-tabs .nav-link:not(:last-child) {
+  margin-right: -1px;
+}
+
+.product__tab .nav-tabs .nav-link:focus,
+.product__tab .nav-tabs .nav-link:hover {
+  color: var(--bgp-tab-color);
+}
+
+.product__tab .tab-content {
+  border: 1px solid var(--bgp-border-color);
+  padding: 0.5rem 1rem;
+  background-color: var(--bgp-tab-active-bg);
+}
+
+.layout-product-tab-1 {
+  --bgp-tab-divider-color: transparent;
+  --bgp-border-color: #90a4ae;
+  --bgp-border-color-active: var(--bgp-border-color) var(--bgp-border-color) transparent;
+  --bgp-tab-active-bg: #fff;
+  --bgp-border-width: 2px;
+  --bgp-tab-bg: #CFD8DC;
+}
+
+.layout-product-tab-2 {
+  --bgp-tab-divider-color: transparent;
+  --bgp-border-color: transparent;
+  --bgp-border-color-active: var(--bgp-border-color) var(--bgp-border-color) transparent;
+  --bgp-border-width: 1px;
+  --bgp-tab-active-bg: #CFD8DC;
+  --bgp-tab-bg: #fff;
+}
+
+.layout-product-tab-3 {
+  --bgp-tab-divider-color: transparent;
+  --bgp-border-color: transparent;
+  --bgp-border-color-active: transparent transparent var(--body-text-color);
+  --bgp-border-width: 2px;
+  --bgp-tab-active-bg: transparent;
+  --bgp-tab-bg: transparent;
+}
+
+.layout-product-tab-4 {
+  --bgp-tab-divider-color: transparent;
+  --bgp-border-color: #90a4ae;
+  --bgp-border-color-active: var(--bgp-border-color) var(--bgp-border-color) transparent;
+  --bgp-tab-active-bg: #fff;
+  --bgp-border-width: 2px;
+  --bgp-tab-bg: #CFD8DC;
+  --bgp-flex: 1 1 auto;
+}
+
+.layout-product-tab-5 {
+  --bgp-tab-divider-color: transparent;
+  --bgp-border-color: transparent;
+  --bgp-border-color-active: var(--bgp-border-color) var(--bgp-border-color) transparent;
+  --bgp-border-width: 1px;
+  --bgp-tab-active-bg: #CFD8DC;
+  --bgp-tab-bg: #fff;
+  --bgp-flex: 1 1 auto;
+}
+
+.layout-product-tab-6 {
+  --bgp-tab-divider-color: transparent;
+  --bgp-border-color: transparent;
+  --bgp-border-color-active: transparent transparent var(--body-text-color);
+  --bgp-border-width: 2px;
+  --bgp-tab-active-bg: transparent;
+  --bgp-tab-bg: transparent;
+  --bgp-flex: 1 1 auto;
+}
+
+/* Product tab accordion */
+.product__accordion {
+  --bgp-rounded: 0px;
+  --bgp-border-width: 1px;
+}
+
+.product__accordion .accordion-item {
+  border: var(--bgp-border-width, 1px) solid;
+  border-color: var(--bgp-border-color);
+}
+
+.product__accordion .accordion-item .accordion-button {
+  font-weight: 500;
+  background-color: var(--bgp-header-accordion-bg, transparent);
+}
+
+.product__accordion .accordion-item .accordion-button:focus {
+  border-color: none;
+  box-shadow: none;
+}
+
+.product__accordion .accordion-item .accordion-button:not(.collapsed) {
+  background-color: var(--bgp-accordion-expanded);
+  color: var(--body-text-color);
+  box-shadow: none;
+}
+
+.product__accordion .accordion-item .accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.product__accordion .accordion-item .accordion-body {
+  background-color: var(--bgp-accordion-bg);
+}
+
+.product__accordion .accordion-item:first-of-type,
+.product__accordion .accordion-item:first-of-type .accordion-button {
+  border-top-left-radius: var(--bgp-rounded);
+  border-top-right-radius: var(--bgp-rounded);
+}
+
+.product__accordion .accordion-item:last-of-type,
+.product__accordion .accordion-item:last-of-type .accordion-button {
+  border-bottom-left-radius: var(--bgp-rounded);
+  border-bottom-right-radius: var(--bgp-rounded);
+}
+
+.layout-product-tab-7 {
+  --bgp-border-color: transparent;
+  --bgp-accordion-expanded: #CFD8DC;
+  --bgp-header-accordion-bg: #CFD8DC;
+  --bgp-accordion-bg: transparent;
+}
+
+.layout-product-tab-8 {
+  --bgp-border-color: transparent;
+  --bgp-header-accordion-bg: #CFD8DC;
+  --bgp-accordion-expanded: var(--bgp-header-accordion-bg);
+  --bgp-accordion-bg: var(--bgp-accordion-expanded);
+}
+
+.layout-product-tab-9 {
+  --bgp-border-color: transparent transparent #CFD8DC;
+  --bgp-header-accordion-bg: transparent;
+  --bgp-accordion-expanded: var(--bgp-header-accordion-bg);
+  --bgp-accordion-bg: var(--bgp-accordion-expanded);
+}
+
+/* Star */
+.fa-star,
+.fa-star-half-alt {
+  color: var(--color-primary);
+  font-size: 16px;
+}
+
+.fa-star.lg,
+.fa-star-half-alt.lg {
+  font-size: 20px;
+}
+
+.fa-star.vote {
+  cursor: pointer;
+}
+
+.fa-star.vote.over {
+  color: #f9d932;
+}
+
+/* Sort */
+.btn-sort {
+  font-family: var(--font-family-body);
+  font-weight: normal;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-color: #e4e2e2;
+  color: var(--body-text-color);
+}
+
+.btn-sort.dropdown-toggle.show:focus {
+  box-shadow: none;
+}
+
+.desc-content {
+  word-break: break-word;
+}
+
+.desc-content img,
+.desc-content video {
+  max-width: 100%;
+}
+
+.share-are ul {
+  list-style: none;
+  padding: 0;
+}
+
+.share-are ul>li {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  margin: 5px;
+  text-align: center;
+  font-size: 24px;
+  box-shadow: 0 5px 20px 0 rgb(0 0 0 / 10%);
+  border-radius: 50%;
+}
+
+.share-are ul>li:first-child {
+  margin-left: 0;
+  text-align: left;
+  box-shadow: none;
+  border-radius: 0;
+  font-size: 1rem;
+}
+
+.share-are .share_x {
+  color: #4abfe2;
+}
+
+.share-are .share_fb {
+  color: #4a90e2;
+}
+
+.share-are .share_tele {
+  color: #039BE5;
+}
+
+.share-are .share_linkedin {
+  color: #0077B5;
+}
+
+.share-are .share_ptr {
+  color: #FF1D25;
+}
+
+.share-are .share_email a {
+  color: #ff4949;
+}
+
+.fp::before {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: -0.25rem;
+}
+
+.fp-twitter-x::before {
+  content: url(../../public/twitter-x.svg);
+}
+
+.fp-gmail::before {
+  content: url(../../public/gmail.svg);
+}
+
+/* Modal image */
+.modal-image .modal-dialog {
+  margin: 0;
+  max-width: 100%;
+}
+
+.modal-image .modal-dialog .modal-content {
+  border: 0;
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-image .modal-dialog .modal-content .modal-body {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-zoom-image .modal-dialog .modal-content .modal-body {
+  max-width: 700px;
+  min-height: 100vh;
+}
+
+.modal-image .modal-dialog .modal-content .modal-close {
+  color: #fff;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  z-index: 100;
+  padding: 10px;
+  z-index: 100;
+}
+
+/* BGS CSS */
+:root {
+  --border-radius: 5px;
+}
+
+html {
+  font-size: var(--font-size-body);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  @apply text-h1
+}
+
+h2 {
+  @apply text-h2
+}
+
+h3 {
+  @apply text-h3
+}
+
+h4 {
+  @apply text-h4
+}
+
+.ratio-1x1 {
+  @apply aspect-square;
+}
+
+.ratio-2x3 {
+  @apply aspect-[2/3];
+}
+
+.ratio-3x1 {
+  @apply aspect-[3/1];
+}
+
+.ratio-3x2 {
+  @apply aspect-[3/2];
+}
+
+.ratio-3x4 {
+  @apply aspect-[3/4];
+}
+
+.ratio-4x3 {
+  @apply aspect-[4/1];
+}
+
+.ratio-4x3 {
+  @apply aspect-[4/3];
+}
+
+.ratio-16x9 {
+  @apply aspect-[16/9]
+}
+
+.ratio-21x9 {
+  @apply aspect-[21/9]
 }
