@@ -14,14 +14,13 @@ const Announcement = async ({
           --color-announcement-bar-text: ${settings.announcement_text_color.value};
         }
         `}</style>
-        <div id={id} className="relative">
-          <div
-            className="announcement-bar"
-            dangerouslySetInnerHTML={{
-              __html: settings.announcement_content.value,
-            }}
-          ></div>
-        </div>
+        <div
+          id={id}
+          className="h-10 w-full bg-[var(--color-announcement-bar-background)] text-[var(--color-announcement-bar-text)] flex items-center justify-center text-sm"
+          dangerouslySetInnerHTML={{
+            __html: settings.announcement_content.value,
+          }}
+        ></div>
       </>
     );
   } else return <></>;
