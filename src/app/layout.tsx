@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Barlow } from "next/font/google";
 import "./globals.css";
 import { getThemeConfigs } from "./actions";
 import { convertCssVariables, getFontUrl } from "@/lib/utils";
 import { find } from "lodash";
-const inter = Inter({ subsets: ["latin"] });
+const font = Barlow({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -52,7 +55,7 @@ export default async function RootLayout({
       <head>
         <link href={getFontUrl(font_url.value) ?? ""} rel="stylesheet" />
       </head>
-      <body className={inter.className}>
+      <body className={font.className}>
         <style
           dangerouslySetInnerHTML={{
             __html: convertCssVariables(customCss?.style_dk?.value || ""),

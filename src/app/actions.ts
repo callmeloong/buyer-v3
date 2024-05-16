@@ -49,3 +49,16 @@ export const getThemeMenu = async (menuId: string) => {
   );
   return menu;
 };
+
+export const getProductDetails = async (uri: string) => {
+  const domainInfo = await getDomainInfo();
+  const reqHeaders = new Headers();
+  reqHeaders.set("X-Store-Domain", domainInfo.store_domain);
+  const productDetails = await handleFetching(
+    "PRODUCT",
+    `/public/products/${uri}`,
+    { headers: reqHeaders }
+  );
+
+  return productDetails;
+};
