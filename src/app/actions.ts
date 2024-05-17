@@ -62,3 +62,10 @@ export const getProductDetails = async (uri: string) => {
 
   return productDetails;
 };
+
+// export const getProductTabs = async (shortCode: string) => {
+//   const domainInfo = await getDomainInfo();
+//   const reqHeaders = new Headers();
+//   reqHeaders.set("X-Store-Domain", domainInfo.store_domain);
+//   const productTabs = 
+// };
