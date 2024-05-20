@@ -1,4 +1,9 @@
-import { getProductDetails, getThemeConfigs } from "@/app/actions";
+import {
+  getProductDetails,
+  getProductReviews,
+  getStoreReviews,
+  getThemeConfigs,
+} from "@/app/actions";
 import InputQuantity from "@/components/common/input-quantity/InputQuantity";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
@@ -17,6 +22,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Header from "@/components/common/header/Header";
+import Reviews from "./_components/reviews/reviews";
 
 type Props = {};
 
@@ -27,6 +33,8 @@ export default async function Page({
 }) {
   const themeConfigs = await getThemeConfigs();
   const productDetails = await getProductDetails(params.slug);
+  const storeReviews = await getStoreReviews("1", "5");
+  const productReviews = await getProductReviews(productDetails.id, "1", "5");
 
   const pageConfigs = find(themeConfigs.object_config.pages, {
     page_id: "bg_product",
@@ -232,59 +240,11 @@ export default async function Page({
             </Tabs>
           )}
 
-          <div className="flex flex-col gap-5">
-            <div className="flex flex-col gap-[43px] items-center">
-              <h3 className="font-bold">Reviews</h3>
-              <div className="flex justify-between items-center w-full">
-                <div>
-                  <Ratings variant="yellow" rating={4.5} />
-                  <span>Based on 1099 reviews</span>
-                </div>
-                <div className="w-[1px] h-[99px] bg-[#ECEFF1]"></div>
-                <div>
-                  <div className="flex gap-6 items-center">
-                    <Ratings variant="yellow" rating={5} />
-                    <div className="w-[116px] h-[14px] bg-[#ECEFF1] relative">
-                      <div className="w-[calc(1011/1099*100%)] bg-[#EAE33F] h-full"></div>
-                    </div>
-                    <span className="text-[#263238] text-xs">1011</span>
-                  </div>
-                  <div className="flex gap-6">
-                    <Ratings variant="yellow" rating={4} />
-                    <div className="w-[116px] h-[14px] bg-[#ECEFF1] relative">
-                      <div className="w-[calc(73/1099*100%)] bg-[#EAE33F] h-full"></div>
-                    </div>
-                    <span className="text-[#263238] text-xs">73</span>
-                  </div>
-                  <div className="flex gap-6">
-                    <Ratings variant="yellow" rating={3} />
-                    <div className="w-[116px] h-[14px] bg-[#ECEFF1] relative">
-                      <div className="w-[calc(12/1099*100%)] bg-[#EAE33F] h-full"></div>
-                    </div>
-                    <span className="text-[#263238] text-xs">12</span>
-                  </div>
-                  <div className="flex gap-6">
-                    <Ratings variant="yellow" rating={2} />
-                    <div className="w-[116px] h-[14px] bg-[#ECEFF1] relative">
-                      <div className="w-[calc(2/1099*100%)] bg-[#EAE33F] h-full"></div>
-                    </div>
-                    <span className="text-[#263238] text-xs">2</span>
-                  </div>
-                  <div className="flex gap-6">
-                    <Ratings variant="yellow" rating={1} />
-                    <div className="w-[116px] h-[14px] bg-[#ECEFF1] relative">
-                      <div className="w-[calc(1/1099*100%)] bg-[#EAE33F] h-full"></div>
-                    </div>
-                    <span className="text-[#263238] text-xs">1</span>
-                  </div>
-                </div>
-                <div className="w-[1px] h-[99px] bg-[#ECEFF1]"></div>
-                <button className="bg-[var(--color-primary)] rounded-[var(--border-radius)] px-4 py-2 h-10 text-white">
-                  Write a review
-                </button>
-              </div>
-            </div>
-          </div>
+          <Reviews
+            productId={productDetails.id}
+            initialProductReviews={productReviews}
+            initialStoreReviews={storeReviews}
+          />
         </div>
       </main>
     </>

@@ -12,6 +12,10 @@ const ratingVariants = {
     star: "text-[var(--color-primary)]",
     emptyStar: "text-[var(--color-primary)]",
   },
+  primary: {
+    star: "text-[var(--color-primary)]",
+    emptyStar: "text-[var(--color-primary)]",
+  },
   yellow: {
     star: "text-[#EAE33F]",
     emptyStar: "text-yellow-200",

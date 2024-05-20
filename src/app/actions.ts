@@ -1,6 +1,7 @@
 "use server";
 
-import { TApiPath } from "@/types/common";
+import { PagingData, TApiPath } from "@/types/common";
+import { Aggr, Review } from "@/types/review";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -67,5 +68,55 @@ export const getProductDetails = async (uri: string) => {
 //   const domainInfo = await getDomainInfo();
 //   const reqHeaders = new Headers();
 //   reqHeaders.set("X-Store-Domain", domainInfo.store_domain);
-//   const productTabs = 
+//   const productTabs =
 // };
+
+export const getStoreReviews = async (page: string, page_size: string) => {
+  const domainInfo = await getDomainInfo();
+  const reqHeaders = new Headers();
+  reqHeaders.set("X-Store-Domain", domainInfo.store_domain);
+  const queryParams = new URLSearchParams({
+    domain_name: domainInfo.domain_name,
+    page: page,
+    page_size: page_size,
+    sort: "Most Recent",
+    is_image: "true",
+  });
+  const storeReviews = await handleFetching(
+    "ADDON",
+    `/apps/product-review?${queryParams}`,
+    { headers: reqHeaders }
+  );
+
+  return storeReviews as PagingData<Review[]> & {
+    totalImage: number;
+    aggr: Aggr;
+  };
+};
+
+export const getProductReviews = async (
+  id: string,
+  page: string,
+  page_size: string
+) => {
+  const domainInfo = await getDomainInfo();
+  const reqHeaders = new Headers();
+  reqHeaders.set("X-Store-Domain", domainInfo.store_domain);
+  const queryParams = new URLSearchParams({
+    domain_name: domainInfo.domain_name,
+    page: page,
+    page_size: page_size,
+    sort: "Most Recent",
+    is_image: "true",
+  });
+  const productReviews = await handleFetching(
+    "ADDON",
+    `/apps/product-review/${id}?${queryParams}`,
+    { headers: reqHeaders }
+  );
+
+  return productReviews as PagingData<Review[]> & {
+    totalImage: number;
+    aggr: Aggr;
+  };
+};

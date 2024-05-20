@@ -153,3 +153,15 @@ export const PRODUCT_DESCRIPTION_TAB = [
   { name: "Details", value: "details" },
   { name: "Shipping Info", value: "shipping-info" },
 ];
+
+export const REVIEWS_TAB = [
+  { name: "Product Reviews", value: "product-reviews" },
+  { name: "Store Reviews", value: "store-reviews" },
+];
+
+export const SORT_REVIEWS = [
+  "Most Recent",
+  "Highest Rating",
+  "Lowest Rating",
+  "Picture/Videos first",
+];
