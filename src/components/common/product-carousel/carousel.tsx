@@ -7,8 +7,6 @@ import Thumb from "./thumbs-button";
 import "../../../app/styles/embla.css";
 import { Mockup } from "@/types/product-details";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
-import { find, findIndex } from "lodash";
 import { cn } from "@/lib/utils";
 type Props = {
   slides: Mockup[];
@@ -66,7 +64,7 @@ export default function ProductCarousel({
               <div>
                 <Image
                   className="w-full h-full object-contain"
-                  src={mockup.src}
+                  src={mockup.src ?? "/img-placeholder.png"}
                   alt="alt"
                   width={0}
                   height={0}

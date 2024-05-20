@@ -111,7 +111,7 @@ const HeaderInline = async () => {
             <SheetContent
               side="top"
               className="h-[112px] flex items-center px-[300px] py-8"
-              // showBtnClose={false}
+              showBtnClose={false}
             >
               <div className="flex gap-2 p-2 flex-1 items-center">
                 <Search />
